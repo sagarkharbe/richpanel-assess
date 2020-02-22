@@ -1,0 +1,17 @@
+{
+  "name": "richpanel-assess",
+  "version": "1.0.0",
+  "description": "RichPanel Assessment - Build a Twitter Help Desk",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodejs",
+    "reactjs",
+    "socket.io",
+    "twitter-api"
+  ],
+  "author": "Sagar Kharabe",
+  "license": "MIT"
+}
