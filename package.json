@@ -4,6 +4,7 @@
   "description": "RichPanel Assessment - Build a Twitter Help Desk",
   "main": "index.js",
   "scripts": {
+    "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -12,6 +13,24 @@
     "socket.io",
     "twitter-api"
   ],
+  "dependencies": {
+    "body-parser": "^1.17.0",
+    "chalk": "^3.0.0",
+    "cookie-parser": "^1.4.4",
+    "cookie-session": "^1.4.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.0.0",
+    "express": "^4.15.2",
+    "express-session": "^1.17.0",
+    "morgan": "^1.9.1",
+    "passport": "^0.4.1",
+    "passport-twitter": "^1.0.4",
+    "passport-twitter-token": "^1.3.0",
+    "path": "^0.12.7"
+  },
   "author": "Sagar Kharabe",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
 }
