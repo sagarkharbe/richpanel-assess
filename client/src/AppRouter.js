@@ -1,12 +1,16 @@
 import React from "react";
-import HomePage from "./components/Homepage";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import LoginPage from "./components/LoginPage";
+import DashBoard from "./components/DashBoard";
 
 export const AppRouter = () => {
   return (
     <Router>
       <div>
-        <Route exact path="/" component={HomePage} />
+        <Switch>
+          <Route exact path="/" component={LoginPage} />
+          <Route exact path="/dashboard" component={DashBoard} />
+        </Switch>
       </div>
     </Router>
   );

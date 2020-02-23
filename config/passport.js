@@ -1,14 +1,12 @@
-const TwitterStrategy = require("passport-twitter");
-const passport = require("passport");
+const TwitterTokenStrategy = require("passport-twitter-token");
 const keys = require("./keys");
 
 module.exports = passport => {
   passport.use(
-    new TwitterStrategy(
+    new TwitterTokenStrategy(
       {
         consumerKey: keys.TWITTER_CONSUMER_KEY,
-        consumerSecret: keys.TWITTER_CONSUMER_SECRET,
-        callbackURL: "/api/auth/twitter/callback"
+        consumerSecret: keys.TWITTER_CONSUMER_SECRET
       },
       async (token, tokenSecret, profile, done) => done(null, profile)
     )

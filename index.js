@@ -11,6 +11,7 @@ const keys = require("./config/keys");
 
 var whitelist = ["http://localhost:3000", "https://twitter-rp.herokuapp.com"];
 var corsOptions = {
+  exposedHeaders: ["x-auth-token"],
   origin: function(origin, callback) {
     if (whitelist.indexOf(origin) !== -1) {
       callback(null, true);
@@ -35,7 +36,7 @@ app.use(cors(corsOptions));
 app.use(passport.initialize());
 require("./config/passport")(passport);
 
-app.use(morgan("combined"));
+app.use(morgan("dev"));
 app.use("/", express.static(path.join(__dirname, "../../client/build/")));
 
 //making body available to read in request object
