@@ -9,9 +9,25 @@ const SESSION = {
   COOKIE_KEY: "thisappisawesome"
 };
 
+const ENV = process.env.NODE_ENV;
+
+const JWT_SECRET =  "3hmPDIfMO97zziRU",
+
+const ERROR_CODES = {
+  INVALID_SHAPE: "INVALID_SHAPE",
+  NOT_FOUND: "NOT_FOUND",
+  EXISTS: "EXISTS",
+  INVALID_AUTH: "INVALID_AUTH",
+  INTERNAL_SERVER_ERROR: "INTERNAL_SERVER_ERROR",
+  VALIDATION_ERROR: "VALIDATION_ERROR"
+}
+
 const KEYS = {
   ...TWITTER_TOKENS,
-  ...SESSION
+  ...SESSION,
+  JWT_SECRET,
+  ERROR_CODES,
+  ENV
 };
 
 module.exports = KEYS;
