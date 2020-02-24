@@ -1,8 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { Container, Button } from "@material-ui/core";
+import React, { useState, useEffect, createContext, useContext } from "react";
+import { Container, Button, Typography } from "@material-ui/core";
 import { withRouter } from "react-router-dom";
 import api from "../shared/customAxios";
 import { apiUrl } from "../shared/vars";
+import { observer } from "mobx-react";
+import { appStore } from "../store/appStore";
+import Icon from "@mdi/react";
+import { mdiTwitter } from "@mdi/js";
 
 const login = async () => {
   const res = await api.post(`${apiUrl}/api/auth/twitter/reverse`);
@@ -16,25 +20,25 @@ const login = async () => {
   }
 };
 
-const verify = async (query, props) => {
-  const res = await api.post(
-    `${apiUrl}/api/auth/twitter`,
-    JSON.stringify({ ...query })
-  );
-
-  if (!res.headers["x-auth-token"]) {
-    window.alert("Please try again later");
-    return;
-  } else {
-    window.localStorage.setItem("rp_token", res.headers["x-auth-token"]);
-    setTimeout(() => {
-      props.history.push("/dashboard");
-    }, 1000);
-  }
-};
-
 function LoginPage(props) {
   const [isLoading, setLoading] = useState(false);
+
+  const verify = async (query, props) => {
+    setLoading(true);
+    const res = await api.post(
+      `${apiUrl}/api/auth/twitter`,
+      JSON.stringify({ ...query })
+    );
+
+    if (!res.headers["x-auth-token"]) {
+      window.alert("Please try again later");
+      appStore.changeLoginState(false, null, "");
+      return;
+    } else {
+      appStore.changeLoginState(true, null, res.headers["x-auth-token"]);
+      props.history.push("/dashboard");
+    }
+  };
 
   useEffect(() => {
     var search = window.location.search.substring(1);
@@ -54,14 +58,37 @@ function LoginPage(props) {
   }, []);
 
   return (
-    <Container maxWidth="sm" style={{ paddingTop: "25px" }}>
-      <b>Welcome to Rich Panel Twitter HelpDesk</b>
-      <b>Login or Register via Twitter</b>
-      <Button variant="contained" color="primary" onClick={() => login()}>
-        Twitter
+    <Container
+      style={{
+        width: "100%",
+        height: "100%",
+        position: "absolute",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center"
+      }}
+    >
+      <Typography variant="h3" gutterBottom>
+        Getting Started
+      </Typography>
+      <Button
+        disabled={isLoading}
+        variant="contained"
+        size="large"
+        color="primary"
+        aria-label="add"
+        style={{ marginTop: "20px" }}
+        startIcon={<Icon path={mdiTwitter} color="white" size={1} />}
+        onClick={() => {
+          setLoading(true);
+          login();
+        }}
+      >
+        Login with Twitter
       </Button>
     </Container>
   );
 }
 
-export default withRouter(LoginPage);
+export default observer(withRouter(LoginPage));

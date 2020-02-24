@@ -37,7 +37,6 @@ app.use(passport.initialize());
 require("./config/passport")(passport);
 
 app.use(morgan("dev"));
-app.use("/", express.static(path.join(__dirname, "../../client/build/")));
 
 //making body available to read in request object
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -47,7 +46,7 @@ app.use(bodyParser.json());
 app.use("/api", require("./routes"));
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
+  app.use("/", express.static(path.join(__dirname, "../../client/build/")));
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
