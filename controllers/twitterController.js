@@ -1,4 +1,4 @@
-const twitter = require("../lib/twitter");
+const twitter = require("../lib/twitterAPIs");
 
 module.exports = {
   getUserDetails: async function(req, res, next) {

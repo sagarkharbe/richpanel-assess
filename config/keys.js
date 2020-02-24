@@ -2,7 +2,7 @@ const TWITTER_TOKENS = {
   TWITTER_CONSUMER_KEY: "Xit3fm1ZSqHYUuBlSsBbUbRlv",
   TWITTER_CONSUMER_SECRET: "DmGyzfv0UpdqMknXhpMQ8FJGXPJ0HNXt0qRD6D3Hjcd8exFKGP",
   TWITTER_ACCESS_TOKEN: "744821118943399940-Km6a2SKR6UPMklQslfpvvrAcDU3m2Bp",
-  TWITTER_TOKEN_SECRET: "bnlJSqDP2x1FjlZW8gs1hJt38m7ZlzYLuNiZQZF7ElDaI"
+  TWITTER_ACCESS_TOKEN_SECRET: "bnlJSqDP2x1FjlZW8gs1hJt38m7ZlzYLuNiZQZF7ElDaI"
 };
 
 const SESSION = {
@@ -10,6 +10,11 @@ const SESSION = {
 };
 
 const ENV = process.env.NODE_ENV;
+
+const SERVER_URL =
+  ENV === "production"
+    ? "https://twitter-rp.herokuapp.com"
+    : "http://localhost:5000";
 
 const JWT_SECRET = "3hmPDIfMO97zziRU";
 
@@ -28,6 +33,7 @@ const KEYS = {
   ...SESSION,
   JWT_SECRET,
   ERROR_CODES,
+  SERVER_URL,
   ENV
 };
 

@@ -5,8 +5,11 @@ const bodyParser = require("body-parser");
 const passport = require("passport");
 const http = require("http");
 const chalk = require("chalk");
+const compression = require("compression");
 const cors = require("cors");
 const keys = require("./config/keys");
+const socketUtils = require("./config/socketUtils");
+const { setUserActivityWebhook } = require("./lib/twitterWebHooks");
 //const helmet = require('helmet')
 
 var whitelist = ["http://localhost:3000", "https://twitter-rp.herokuapp.com"];
@@ -37,11 +40,15 @@ app.use(passport.initialize());
 require("./config/passport")(passport);
 
 app.use(morgan("dev"));
+// gzip compression
+app.use(compression());
 
 //making body available to read in request object
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+// TODO: add socket.io connection later
+setUserActivityWebhook(app);
 //Redirect to api routes
 app.use("/api", require("./routes"));
 
@@ -53,9 +60,12 @@ if (process.env.NODE_ENV === "production") {
 }
 
 const server = http.createServer(app);
-const port = process.env.PORT || 5000;
 
-//add socket.io connection later
+global.io = require("socket.io").listen(server);
+
+socketUtils.newConnection();
+
+const port = process.env.PORT || 5000;
 
 // 🌎 Listen to PORT
 server.listen(port, () =>
