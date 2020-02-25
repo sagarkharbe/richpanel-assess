@@ -7,7 +7,6 @@ module.exports = {
       user.oauth_token,
       user.oauth_token_secret
     ).getUserDetails();
-    console.log(data);
     const { name, location, description, screen_name, followers_count } = data;
     let userInfo = {
       name,

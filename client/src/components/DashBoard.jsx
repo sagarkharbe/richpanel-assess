@@ -22,16 +22,6 @@ import SocketClient from "../shared/socketClient";
 import UserInfo from "./UserInfo";
 import Progress from "./Progress";
 
-const useStyles = theme => ({
-  root: {
-    flexGrow: 1
-  },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: "center",
-    color: theme.palette.text.secondary
-  }
-});
 class DashBoard extends Component {
   constructor(props) {
     super(props);
@@ -41,7 +31,7 @@ class DashBoard extends Component {
       tweets: [],
       selectedTweet: null,
       selectedIndex: null,
-      replies: [],
+      replies: {},
       reply: ""
     };
   }
@@ -54,6 +44,7 @@ class DashBoard extends Component {
     this.setState({ isLoading: true });
     this.init();
   }
+
   init = async () => {
     const user = appStore.user
       ? appStore.user
@@ -67,7 +58,7 @@ class DashBoard extends Component {
     SocketClient({
       getTweets: async () => {
         const tweets = await this.getTweets();
-        this.setState({ tweets });
+        this.setState({ tweets }, () => console.log(this.state.tweets, tweets));
       }
     });
   };
@@ -91,6 +82,30 @@ class DashBoard extends Component {
     });
   };
 
+  postReplies = async query => {
+    const { data } = await api.post(
+      `${apiUrl}/api/twitter/postReplies`,
+      JSON.stringify({
+        inReplyToStatusId: query.selectedTweet.id_str,
+        status: query.reply
+      })
+    );
+    const replies = { ...query.replies };
+
+    if (!replies[query.selectedTweet.id]) {
+      replies[query.selectedTweet.id] = [];
+    }
+    replies[query.selectedTweet.id].push(data);
+
+    this.setState(
+      {
+        reply: "@" + query.selectedTweet.user.screen_name + " ",
+        replies
+      },
+      () => console.log(this.state.replies)
+    );
+  };
+
   logout = async () => {
     window.localStorage.clear();
     appStore.changeLoginState(false, null, "");
@@ -100,7 +115,7 @@ class DashBoard extends Component {
     }, 100);
   };
   render() {
-    const { replies, selectedIndex, selectedTweet, reply } = this.state;
+    const { replies, selectedIndex, selectedTweet, reply, tweets } = this.state;
     console.log(reply);
     return (
       <div
@@ -225,7 +240,9 @@ class DashBoard extends Component {
                               boxShadow: "2px 9px 15px rgba(191, 191, 191, 0.5)"
                             }}
                           >
-                            <p style={{ fontSize: "1em" }}>{o.text}</p>
+                            <p style={{ fontSize: "1em", marginRight: "5px" }}>
+                              {o.text}
+                            </p>
                             <p style={{ fontSize: "0.8em" }}>
                               {moment(o.created_at).fromNow()}
                             </p>
@@ -257,6 +274,13 @@ class DashBoard extends Component {
                             color="primary"
                             variant="contained"
                             style={{ borderRadius: "10%" }}
+                            onClick={() => {
+                              this.postReplies({
+                                reply,
+                                selectedTweet,
+                                replies
+                              });
+                            }}
                           >
                             Reply
                           </Button>

@@ -1,5 +1,5 @@
 import io from "socket.io-client";
-
+import { apiUrl } from "./vars";
 let socketClient = null;
 
 class SocketClient {
@@ -7,7 +7,7 @@ class SocketClient {
     this.services = services;
     this.endpoint = "http://127.0.0.1:5001";
     this.authenticate = this.authenticate.bind(this);
-    this.connection = io("http://localhost:5000").connect();
+    this.connection = io(`${apiUrl}`).connect();
     this.socketHandler = this.socketHandler.bind(this);
     this.socketHandler();
   }
@@ -24,7 +24,7 @@ class SocketClient {
 
     this.connection.on("newTweets", () => {
       this.services.getTweets();
-      console.log("socket - disconnect");
+      console.log("socket - newTweets");
     });
 
     this.connection.on("handshake", data => {

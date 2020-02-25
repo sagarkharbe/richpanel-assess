@@ -6,6 +6,7 @@ const passport = require("passport");
 const http = require("http");
 const chalk = require("chalk");
 const compression = require("compression");
+const helmet = require("helmet");
 const cors = require("cors");
 const { SOCKET_PORT, SOCKET_URL } = require("./config/keys");
 const socketUtils = require("./config/socketUtils");
@@ -43,6 +44,7 @@ app.use(morgan("dev"));
 // gzip compression
 app.use(compression());
 
+app.use(helmet());
 //making body available to read in request object
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -64,9 +66,11 @@ const server = http.createServer(app);
 
 global.io = require("socket.io").listen(server);
 
-server.listen(SOCKET_PORT, SOCKET_URL, () =>
-  console.info(`socket server started on ${SOCKET_URL}:${SOCKET_PORT}`)
-);
+// server.listen(SOCKET_PORT, SOCKET_URL, () =>
+//   console.info(
+//     chalk.yellow(`socket server started on ${SOCKET_URL}:${SOCKET_PORT}`)
+//   )
+// );
 
 socketUtils.newConnection();
 

@@ -12,7 +12,6 @@ module.exports = {
       const payload = {
         ...req.body
       };
-      console.log("ppay load", payload);
       req.token = sharedFunctions.createToken(payload);
       res.setHeader("x-auth-token", req.token);
       return res.status(200).send();
