@@ -29,6 +29,7 @@ class DashBoard extends Component {
       isLoading: false,
       user: {},
       tweets: [],
+      userTweets: [],
       selectedTweet: null,
       selectedIndex: null,
       replies: {},
@@ -40,6 +41,9 @@ class DashBoard extends Component {
     return await api.get(`${apiUrl}/api/twitter/tweets`);
   };
 
+  getUserTweets = async () => {
+    return await api.get(`${apiUrl}/api/twitter/user/tweets`);
+  };
   componentDidMount() {
     this.setState({ isLoading: true });
     this.init();
@@ -50,11 +54,16 @@ class DashBoard extends Component {
       ? appStore.user
       : await api.get(`${apiUrl}/api/twitter/self`);
     const tweets = await this.getTweets();
-    this.setState({
-      isLoading: false,
-      user,
-      tweets
-    });
+    const userTweets = await this.getUserTweets();
+    this.setState(
+      {
+        isLoading: false,
+        user,
+        userTweets,
+        tweets
+      },
+      () => console.log(this.state.userTweets)
+    );
     SocketClient({
       getTweets: async () => {
         const tweets = await this.getTweets();
@@ -145,7 +154,7 @@ class DashBoard extends Component {
                   ) : this.state.tweets.length > 0 ? (
                     this.state.tweets.map((o, i) => (
                       <ListItem
-                        key={i.toString()}
+                        key={o.id.toString()}
                         selected={this.state.selectedIndex === i}
                         onClick={() => {
                           this.handleReply("@" + o.user.screen_name + " ");
@@ -188,7 +197,58 @@ class DashBoard extends Component {
               </Paper>
             </Grid>
             <Grid item xs={4}>
-              <Paper style={{ padding: "10px", height: "75vh" }}>xs=12</Paper>
+              <Paper
+                style={{ padding: "10px", height: "75vh", overflow: "scroll" }}
+              >
+                <List
+                  style={{ display: "flex", flex: 1, flexDirection: "column" }}
+                >
+                  {this.state.isLoading ? (
+                    <Progress></Progress>
+                  ) : this.state.userTweets.length > 0 ? (
+                    this.state.userTweets.map((o, i) => (
+                      <ListItem
+                        key={o.id.toString()}
+                        selected={this.state.selectedIndex === i}
+                        onClick={() => {
+                          this.handleReply("@" + o.user.screen_name + " ");
+                          this.handleSelected(i, o);
+                        }}
+                      >
+                        <div style={{ width: "3.10em", height: "3.10em" }}>
+                          <img
+                            src={o.user.profile_image_url}
+                            style={{
+                              width: "100%",
+                              height: "100%",
+                              display: "block",
+                              borderRadius: "3em"
+                            }}
+                          />
+                        </div>
+                        <div style={{ paddingLeft: "0.4em" }}>
+                          <b style={{ fontSize: "1em" }}>
+                            {o.user.name}{" "}
+                            <span
+                              style={{
+                                fontWeight: "normal",
+                                fontSize: "0.8em"
+                              }}
+                            >
+                              {moment(o.created_at).fromNow()}
+                            </span>
+                          </b>
+                          <p>
+                            <span style={{ fontSize: "0.8em" }}>{o.text}</span>
+                          </p>
+                        </div>
+                      </ListItem>
+                    ))
+                  ) : (
+                    <span>No mentioned tweets found</span>
+                  )}
+                </List>
+              </Paper>
             </Grid>
             <Grid item xs={4}>
               <Paper

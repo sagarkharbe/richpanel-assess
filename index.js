@@ -33,7 +33,7 @@ const app = express();
  */
 
 // set up cors to allow us to accept requests from our client
-//app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 
 //passport authentication strategy for twitter
 // initalize passport
@@ -66,7 +66,7 @@ app.get("/", handleRender);
 app.get("*", handleRender);
 
 function handleRender(req, res) {
-  res.sendFile(path.join(__dirname, "../../client/build/index.html"));
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
 }
 
 const server = http.createServer(app);
