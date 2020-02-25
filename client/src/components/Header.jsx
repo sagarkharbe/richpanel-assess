@@ -6,6 +6,8 @@ import {
   Button,
   makeStyles
 } from "@material-ui/core";
+import Icon from "@mdi/react";
+import { mdiTwitter } from "@mdi/js";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -25,10 +27,15 @@ export default function Header(props) {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <Typography variant="h6" className={classes.title}>
-            News
+          <Icon path={mdiTwitter} color="white" size={1} />
+          <Typography
+            variant="h6"
+            style={{ marginLeft: "5px" }}
+            className={classes.title}
+          >
+            Twitter Help Desk
           </Typography>
-          <Button color="inherit" onClick={props.logout}>
+          <Button color="inherit" onClick={props.logout} size={"medium"}>
             Logout
           </Button>
         </Toolbar>

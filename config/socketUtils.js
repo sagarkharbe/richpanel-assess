@@ -5,17 +5,19 @@ const { JWT_SECRET } = require("../config/keys");
 module.exports = {
   newConnection: () => {
     global.io.on("connection", socket => {
-      socket.io("authenticare", async data => {
-        const userData = jwt.decode(data.token, JWT_SECRET);
+      socket.on("authenticate", async data => {
+        const userData = jwt.decode(data.token, jwtSecret);
         await twitterWebhook.userUnsubscribe(userData);
         const userActivityWebhook = twitterWebhook.userActivityWebhook(
           userData
         );
         userActivityWebhook
-          .then(userActivity => {
-            userActivity.on("tweet_create", data => socket.emit("newTweets"));
+          .then(function(userActivity) {
+            userActivity.on("tweet_create", data => {
+              socket.emit("newTweets");
+            });
           })
-          .catch(err => console.log("Error in Socket Conn -- ", error));
+          .catch(error => console.log("error in socket", error));
       });
     });
   },

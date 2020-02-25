@@ -7,7 +7,7 @@ const http = require("http");
 const chalk = require("chalk");
 const compression = require("compression");
 const cors = require("cors");
-const keys = require("./config/keys");
+const { SOCKET_PORT, SOCKET_URL } = require("./config/keys");
 const socketUtils = require("./config/socketUtils");
 const { setUserActivityWebhook } = require("./lib/twitterWebHooks");
 //const helmet = require('helmet')
@@ -47,10 +47,11 @@ app.use(compression());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// TODO: add socket.io connection later
-setUserActivityWebhook(app);
 //Redirect to api routes
 app.use("/api", require("./routes"));
+
+// TODO: add socket.io connection later
+setUserActivityWebhook(app);
 
 if (process.env.NODE_ENV === "production") {
   app.use("/", express.static(path.join(__dirname, "../../client/build/")));
@@ -62,6 +63,10 @@ if (process.env.NODE_ENV === "production") {
 const server = http.createServer(app);
 
 global.io = require("socket.io").listen(server);
+
+server.listen(SOCKET_PORT, SOCKET_URL, () =>
+  console.info(`socket server started on ${SOCKET_URL}:${SOCKET_PORT}`)
+);
 
 socketUtils.newConnection();
 

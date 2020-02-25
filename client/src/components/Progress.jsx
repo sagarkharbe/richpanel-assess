@@ -9,10 +9,11 @@ export default function Progress() {
         height: "100%",
         position: "absolute",
         display: "flex",
+        flex: 1,
         zIndex: 999,
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "rgba(0,0,0,0.2)"
+        backgroundColor: "rgba(0,0,0,0.05)"
       }}
     >
       <CircularProgress></CircularProgress>

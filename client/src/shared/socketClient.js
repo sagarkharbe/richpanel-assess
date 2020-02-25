@@ -7,7 +7,7 @@ class SocketClient {
     this.services = services;
     this.endpoint = "http://127.0.0.1:5001";
     this.authenticate = this.authenticate.bind(this);
-    this.connection = io.connect();
+    this.connection = io("http://localhost:5000").connect();
     this.socketHandler = this.socketHandler.bind(this);
     this.socketHandler();
   }
@@ -33,7 +33,7 @@ class SocketClient {
   }
 
   authenticate = () => {
-    const token = window.localStorage.getItem("atkn");
+    const token = window.localStorage.getItem("rp_token");
     console.log("socket - authenticating", token);
 
     this.connection.emit("authenticate", { token }, () => {

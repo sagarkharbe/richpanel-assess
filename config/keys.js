@@ -16,6 +16,10 @@ const SERVER_URL =
     ? "https://twitter-rp.herokuapp.com"
     : "http://localhost:5000";
 
+const SOCKET_URL = "127.0.0.1";
+
+const SOCKET_PORT = 5001;
+
 const JWT_SECRET = "3hmPDIfMO97zziRU";
 
 const ERROR_CODES = {
@@ -34,6 +38,8 @@ const KEYS = {
   JWT_SECRET,
   ERROR_CODES,
   SERVER_URL,
+  SOCKET_URL,
+  SOCKET_PORT,
   ENV
 };
 

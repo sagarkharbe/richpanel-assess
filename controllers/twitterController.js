@@ -7,12 +7,14 @@ module.exports = {
       user.oauth_token,
       user.oauth_token_secret
     ).getUserDetails();
-    const { name, location, description, screen_name } = data;
+    console.log(data);
+    const { name, location, description, screen_name, followers_count } = data;
     let userInfo = {
       name,
       location,
       description,
-      screen_name
+      screen_name,
+      followers_count
     };
     return res.json(userInfo);
   },

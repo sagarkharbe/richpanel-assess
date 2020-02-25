@@ -12,8 +12,8 @@ module.exports = {
       const payload = {
         ...req.body
       };
+      console.log("ppay load", payload);
       req.token = sharedFunctions.createToken(payload);
-
       res.setHeader("x-auth-token", req.token);
       return res.status(200).send();
     } catch (error) {
@@ -23,7 +23,6 @@ module.exports = {
   },
 
   authRequest: async (req, res, next) => {
-    console.log(req.body);
     request.post(
       {
         url: "https://api.twitter.com/oauth/access_token",
@@ -76,9 +75,10 @@ module.exports = {
         try {
           if (err) {
             return res.send(500, { message: err.message });
+          } else {
+            const jsonBody = sharedFunctions.makeJson(body);
+            return res.send(jsonBody);
           }
-          const jsonBody = sharedFunctions.makeJson(body);
-          return res.send(jsonBody);
         } catch (error) {
           console.log("error at twitter reverse controller - ", error);
           return next(error);
