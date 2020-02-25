@@ -18,6 +18,20 @@ module.exports = {
     return res.json(userInfo);
   },
 
+  getUserTweets: async function(req, res, next) {
+    try {
+      const { user } = req;
+      const { data } = await twitter(
+        user.oauth_token,
+        user.oauth_token_secret
+      ).userTimelineTweets();
+      return res.json(data);
+    } catch (err) {
+      console.log("ERROR at USER TWEETS ", err);
+      next();
+    }
+  },
+
   getMentionedTweets: async function(req, res, next) {
     try {
       const { user } = req;
