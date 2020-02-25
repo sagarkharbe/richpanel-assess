@@ -11,7 +11,8 @@ import {
   TextField,
   InputAdornment,
   IconButton,
-  Button
+  Button,
+  Typography
 } from "@material-ui/core";
 import { observer } from "mobx-react";
 import moment from "moment";
@@ -149,16 +150,26 @@ class DashBoard extends Component {
                 <List
                   style={{ display: "flex", flex: 1, flexDirection: "column" }}
                 >
+                  <div
+                    style={{
+                      backgroundColor: "#254d7a",
+                      height: "6vh"
+                    }}
+                  >
+                    <h3 style={{ textAlign: "center", color: "#eaeef2" }}>
+                      User Mentions
+                    </h3>
+                  </div>
                   {this.state.isLoading ? (
                     <Progress></Progress>
                   ) : this.state.tweets.length > 0 ? (
                     this.state.tweets.map((o, i) => (
                       <ListItem
                         key={o.id.toString()}
-                        selected={this.state.selectedIndex === i}
+                        selected={this.state.selectedIndex === o.id_str}
                         onClick={() => {
                           this.handleReply("@" + o.user.screen_name + " ");
-                          this.handleSelected(i, o);
+                          this.handleSelected(o.id_str, o);
                         }}
                       >
                         <div style={{ width: "3.10em", height: "3.10em" }}>
@@ -172,7 +183,7 @@ class DashBoard extends Component {
                             }}
                           />
                         </div>
-                        <div style={{ paddingLeft: "0.4em" }}>
+                        <div style={{ marginLeft: "10px", maxWidth: "80%" }}>
                           <b style={{ fontSize: "1em" }}>
                             {o.user.name}{" "}
                             <span
@@ -203,16 +214,27 @@ class DashBoard extends Component {
                 <List
                   style={{ display: "flex", flex: 1, flexDirection: "column" }}
                 >
+                  <div
+                    style={{
+                      backgroundColor: "#254d7a",
+                      height: "6vh"
+                    }}
+                  >
+                    <h3 style={{ textAlign: "center", color: "#eaeef2" }}>
+                      User Timeline
+                    </h3>
+                  </div>
                   {this.state.isLoading ? (
                     <Progress></Progress>
                   ) : this.state.userTweets.length > 0 ? (
                     this.state.userTweets.map((o, i) => (
                       <ListItem
                         key={o.id.toString()}
-                        selected={this.state.selectedIndex === i}
+                        selected={this.state.selectedIndex === o.id_str}
+                        //style={{ height: "6em" }}
                         onClick={() => {
                           this.handleReply("@" + o.user.screen_name + " ");
-                          this.handleSelected(i, o);
+                          this.handleSelected(o.id_str, o);
                         }}
                       >
                         <div style={{ width: "3.10em", height: "3.10em" }}>
@@ -226,9 +248,9 @@ class DashBoard extends Component {
                             }}
                           />
                         </div>
-                        <div style={{ paddingLeft: "0.4em" }}>
+                        <div style={{ marginLeft: "10px", maxWidth: "80%" }}>
                           <b style={{ fontSize: "1em" }}>
-                            {o.user.name}{" "}
+                            {o.user.name}
                             <span
                               style={{
                                 fontWeight: "normal",
@@ -274,7 +296,8 @@ class DashBoard extends Component {
                             margin: "1%",
                             width: "80%",
                             borderTop: "3px #0c458b solid",
-                            boxShadow: "2px 9px 15px rgba(191, 191, 191, 0.5)"
+                            boxShadow: "2px 9px 15px rgba(191, 191, 191, 0.5)",
+                            overflow: "scroll"
                           }}
                         >
                           <p style={{ fontSize: "1em", marginRight: "5px" }}>
