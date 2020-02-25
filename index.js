@@ -14,16 +14,16 @@ const { setUserActivityWebhook } = require("./lib/twitterWebHooks");
 //const helmet = require('helmet')
 
 var whitelist = ["http://localhost:3000", "https://twitter-rp.herokuapp.com"];
-// var corsOptions = {
-//   exposedHeaders: ["x-auth-token"],
-//   origin: function(origin, callback) {
-//     if (whitelist.indexOf(origin) !== -1) {
-//       callback(null, true);
-//     } else {
-//       callback(new Error("Not allowed by CORS"));
-//     }
-//   }
-// };
+var corsOptions = {
+  exposedHeaders: ["x-auth-token"],
+  origin: function(origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  }
+};
 
 //create express application
 const app = express();
@@ -33,7 +33,7 @@ const app = express();
  */
 
 // set up cors to allow us to accept requests from our client
-//app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 
 //passport authentication strategy for twitter
 // initalize passport

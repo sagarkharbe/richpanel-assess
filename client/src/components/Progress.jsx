@@ -12,8 +12,8 @@ export default function Progress() {
         flex: 1,
         //zIndex: 999,
         alignItems: "center",
-        justifyContent: "center",
-        backgroundColor: "rgba(0,0,0,0.05)"
+        justifyContent: "center"
+        //backgroundColor: "rgba(0,0,0,0.05)"
       }}
     >
       <CircularProgress></CircularProgress>

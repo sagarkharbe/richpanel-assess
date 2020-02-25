@@ -12,7 +12,11 @@ import {
   InputAdornment,
   IconButton,
   Button,
-  Typography
+  Typography,
+  Divider,
+  ExpansionPanel,
+  ExpansionPanelSummary,
+  ExpansionPanelDetails
 } from "@material-ui/core";
 import { observer } from "mobx-react";
 import moment from "moment";
@@ -22,6 +26,11 @@ import { withRouter } from "react-router-dom";
 import SocketClient from "../shared/socketClient";
 import UserInfo from "./UserInfo";
 import Progress from "./Progress";
+import { MentionsPlaceHolder, ChatPlaceholder } from "./PlaceHolder";
+import Icon from "@mdi/react";
+import { mdiMapMarker } from "@mdi/js";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import InfoColumn from "./InfoColumn";
 
 class DashBoard extends Component {
   constructor(props) {
@@ -125,164 +134,112 @@ class DashBoard extends Component {
     }, 100);
   };
   render() {
-    const { replies, selectedIndex, selectedTweet, reply, tweets } = this.state;
+    const {
+      replies,
+      selectedIndex,
+      selectedTweet,
+      reply,
+      tweets,
+      isLoading
+    } = this.state;
     console.log(reply);
     return (
       <div
         style={{
           height: "100%",
-          width: "100%",
-          marginHorizontal: "10%"
+          width: "100%"
         }}
       >
         <Header logout={this.logout}></Header>
-        {!this.state.isLoading ? (
-          <UserInfo user={this.state.user}></UserInfo>
-        ) : (
-          <div style={{ height: "15vh" }}></div>
-        )}
-        <div style={{ flexGrow: 1 }}>
-          <Grid container spacing={2}>
-            <Grid item xs={4}>
-              <Paper
-                style={{ padding: "10px", height: "75vh", overflow: "scroll" }}
-              >
-                <List
-                  style={{ display: "flex", flex: 1, flexDirection: "column" }}
-                >
-                  <div
-                    style={{
-                      backgroundColor: "#254d7a",
-                      height: "6vh"
-                    }}
-                  >
-                    <h3 style={{ textAlign: "center", color: "#eaeef2" }}>
-                      Mentions
-                    </h3>
-                  </div>
-                  {this.state.isLoading ? (
-                    <Progress></Progress>
-                  ) : this.state.tweets.length > 0 ? (
-                    this.state.tweets.map((o, i) => (
-                      <ListItem
-                        key={o.id.toString()}
-                        selected={this.state.selectedIndex === o.id_str}
-                        onClick={() => {
-                          this.handleReply("@" + o.user.screen_name + " ");
-                          this.handleSelected(o.id_str, o);
-                        }}
-                      >
-                        <div style={{ width: "3.10em", height: "3.10em" }}>
-                          <img
-                            src={o.user.profile_image_url}
-                            style={{
-                              width: "100%",
-                              height: "100%",
-                              display: "block",
-                              borderRadius: "3em"
-                            }}
-                          />
-                        </div>
-                        <div style={{ marginLeft: "10px", maxWidth: "80%" }}>
-                          <b style={{ fontSize: "1em" }}>
-                            {o.user.name}{" "}
-                            <span
-                              style={{
-                                fontWeight: "normal",
-                                fontSize: "0.8em"
-                              }}
-                            >
-                              {moment(o.created_at).fromNow()}
-                            </span>
-                          </b>
-                          <p>
-                            <span style={{ fontSize: "0.8em" }}>{o.text}</span>
-                          </p>
-                        </div>
-                      </ListItem>
-                    ))
-                  ) : (
-                    <span>No mentioned tweets found</span>
-                  )}
-                </List>
-              </Paper>
-            </Grid>
-            <Grid item xs={4}>
-              <Paper
-                style={{ padding: "10px", height: "75vh", overflow: "scroll" }}
-              >
-                <List
-                  style={{ display: "flex", flex: 1, flexDirection: "column" }}
-                >
-                  <div
-                    style={{
-                      backgroundColor: "#254d7a",
-                      height: "6vh"
-                    }}
-                  >
-                    <h3 style={{ textAlign: "center", color: "#eaeef2" }}>
-                      Timeline
-                    </h3>
-                  </div>
-                  {this.state.isLoading ? (
-                    <Progress></Progress>
-                  ) : this.state.userTweets.length > 0 ? (
-                    this.state.userTweets.map((o, i) => (
-                      <ListItem
-                        key={o.id.toString()}
-                        selected={this.state.selectedIndex === o.id_str}
-                        //style={{ height: "6em" }}
-                        onClick={() => {
-                          this.handleReply("@" + o.user.screen_name + " ");
-                          this.handleSelected(o.id_str, o);
-                        }}
-                      >
-                        <div style={{ width: "3.10em", height: "3.10em" }}>
-                          <img
-                            src={o.user.profile_image_url}
-                            style={{
-                              width: "100%",
-                              height: "100%",
-                              display: "block",
-                              borderRadius: "3em"
-                            }}
-                          />
-                        </div>
-                        <div style={{ marginLeft: "10px", maxWidth: "80%" }}>
-                          <b style={{ fontSize: "1em" }}>
-                            {o.user.name}
-                            <span
-                              style={{
-                                fontWeight: "normal",
-                                fontSize: "0.8em"
-                              }}
-                            >
-                              {moment(o.created_at).fromNow()}
-                            </span>
-                          </b>
-                          <p>
-                            <span style={{ fontSize: "0.8em" }}>{o.text}</span>
-                          </p>
-                        </div>
-                      </ListItem>
-                    ))
-                  ) : (
-                    <span>No mentioned tweets found</span>
-                  )}
-                </List>
-              </Paper>
-            </Grid>
-            <Grid item xs={4}>
+        <div
+          style={{
+            flex: 1,
+            justifyContent: "center",
+            alignItems: "center",
+            backgroundColor: ""
+          }}
+        >
+          <Grid container spacing={0}>
+            <Grid item xs={3}>
               <Paper
                 style={{
-                  padding: "10px",
-                  height: "75vh",
+                  height: "92vh",
+                  overflow: "scroll"
+                }}
+              >
+                <List
+                  style={{
+                    display: "flex",
+                    flex: 1,
+                    flexDirection: "column",
+                    padding: 0
+                  }}
+                >
+                  {this.state.isLoading ? (
+                    Array(10)
+                      .fill(0, 0)
+                      .map(e => <MentionsPlaceHolder></MentionsPlaceHolder>)
+                  ) : this.state.tweets.length > 0 ? (
+                    this.state.tweets.map((o, i) => (
+                      <>
+                        <ListItem
+                          key={o.id.toString()}
+                          selected={this.state.selectedIndex !== o.id_str}
+                          onClick={() => {
+                            this.handleReply("@" + o.user.screen_name + " ");
+                            this.handleSelected(o.id_str, o);
+                          }}
+                        >
+                          <div style={{ width: "3.10em", height: "3.10em" }}>
+                            <img
+                              src={o.user.profile_image_url}
+                              style={{
+                                width: "100%",
+                                height: "100%",
+                                display: "block",
+                                borderRadius: "3em"
+                              }}
+                            />
+                          </div>
+                          <div style={{ marginLeft: "10px", maxWidth: "80%" }}>
+                            <b style={{ fontSize: "1em" }}>
+                              {o.user.name}{" "}
+                              <span
+                                style={{
+                                  fontWeight: "normal",
+                                  fontSize: "0.8em"
+                                }}
+                              >
+                                {moment(o.created_at).fromNow()}
+                              </span>
+                            </b>
+                            <p>
+                              <span style={{ fontSize: "0.8em" }}>
+                                {o.text}
+                              </span>
+                            </p>
+                          </div>
+                        </ListItem>
+                        <Divider />
+                      </>
+                    ))
+                  ) : (
+                    <span>No mentioned tweets found</span>
+                  )}
+                </List>
+              </Paper>
+            </Grid>
+            <Grid item xs={6}>
+              <Paper
+                style={{
+                  height: "92vh",
                   display: "flex",
-                  flexDirection: "column"
+                  flexDirection: "column",
+                  backgroundColor: "#EBEBEB"
                 }}
               >
                 <Grid item xs={12}>
-                  <Paper style={{ height: "60vh" }}>
+                  <Paper style={{ height: "70vh" }}>
                     <List
                       style={{
                         display: "flex",
@@ -290,32 +247,54 @@ class DashBoard extends Component {
                         flexDirection: "column"
                       }}
                     >
-                      <div
-                        style={{
-                          backgroundColor: "#254d7a",
-                          height: "6vh"
-                        }}
-                      >
-                        <h3 style={{ textAlign: "center", color: "#eaeef2" }}>
-                          Thread
-                        </h3>
-                      </div>
-                      {selectedTweet && (
-                        <ListItem
-                          style={{
-                            margin: "1%",
-                            width: "80%",
-                            borderTop: "3px #0c458b solid",
-                            boxShadow: "2px 9px 15px rgba(191, 191, 191, 0.5)"
-                          }}
-                        >
-                          <p style={{ fontSize: "1em", marginRight: "5px" }}>
-                            {selectedTweet.text}
-                          </p>
-                          <p style={{ fontSize: "0.8em" }}>
-                            {moment(selectedTweet.created_at).fromNow()}
-                          </p>
-                        </ListItem>
+                      {this.state.isLoading ? (
+                        <ChatPlaceholder align={"start"}></ChatPlaceholder>
+                      ) : (
+                        selectedTweet && (
+                          <ListItem
+                            style={{
+                              margin: "1%",
+                              width: "80%",
+                              borderWidth: "1px",
+                              borderStyle: "solid",
+                              borderColor: "#d3d3d3",
+                              borderRadius: 20,
+                              backgroundColor: "#FBFBFB"
+                            }}
+                          >
+                            <div
+                              style={{
+                                width: "3.10em",
+                                height: "3.10em",
+                                marginRight: "10px"
+                              }}
+                            >
+                              <img
+                                src={selectedTweet.user.profile_image_url}
+                                style={{
+                                  width: "100%",
+                                  height: "100%",
+                                  display: "block",
+                                  borderRadius: "3em"
+                                }}
+                              />
+                            </div>
+                            <span>
+                              <b>{selectedTweet.user.name}</b> <br />
+                              <p
+                                style={{
+                                  fontSize: "1em",
+                                  marginRight: "5px"
+                                }}
+                              >
+                                {selectedTweet.text}
+                              </p>
+                              <p style={{ fontSize: "0.8em" }}>
+                                {moment(selectedTweet.created_at).fromNow()}
+                              </p>
+                            </span>
+                          </ListItem>
+                        )
                       )}
                       {replies &&
                         selectedTweet &&
@@ -327,39 +306,79 @@ class DashBoard extends Component {
                               margin: "1%",
                               width: "60%",
                               marginLeft: "39%",
-                              textAlign: "right",
-                              borderTop: "3px #0c458b solid",
-                              boxShadow: "2px 9px 15px rgba(191, 191, 191, 0.5)"
+                              borderWidth: "1px",
+                              borderStyle: "solid",
+                              borderColor: "#d3d3d3",
+                              borderRadius: 20,
+                              backgroundColor: "#d8edb8"
                             }}
                           >
-                            <p style={{ fontSize: "1em", marginRight: "5px" }}>
-                              {o.text}
-                            </p>
-                            <p style={{ fontSize: "0.8em" }}>
-                              {moment(o.created_at).fromNow()}
-                            </p>
+                            <div
+                              style={{
+                                width: "3.10em",
+                                height: "3.10em",
+                                marginRight: "10px"
+                              }}
+                            >
+                              <img
+                                src={o.user.profile_image_url}
+                                style={{
+                                  width: "100%",
+                                  height: "100%",
+                                  display: "block",
+                                  borderRadius: "3em"
+                                }}
+                              />
+                            </div>
+                            <span>
+                              <b>{o.user.name}</b> <br />
+                              <p
+                                style={{
+                                  fontSize: "1em",
+                                  marginRight: "5px"
+                                }}
+                              >
+                                {o.text}
+                              </p>
+                              <p style={{ fontSize: "0.8em" }}>
+                                {moment(o.created_at).fromNow()}
+                              </p>
+                            </span>
                           </ListItem>
                         ))}
                     </List>
                   </Paper>
                 </Grid>
                 <Grid item xs={12}>
-                  <Paper
+                  <div
                     style={{
-                      margin: "3%",
-                      display: "flex",
-                      flexDirection: "row"
+                      flexDirection: "column",
+                      marginLeft: "10px",
+                      marginRight: "10px"
                     }}
                   >
+                    <Button
+                      style={{
+                        borderBottomColor: "blue",
+                        borderBottomWidth: "2px",
+                        borderBottomStyle: "solid",
+                        borderRadius: 0
+                      }}
+                    >
+                      Reply
+                    </Button>
+                    <Button>Note</Button>
+                    <Divider />
                     <TextField
-                      id="filled-multiline"
+                      id="outlined-full-width"
                       name="reply"
                       fullWidth
                       multiline
-                      rows="3"
+                      rows="4"
                       value={reply}
                       onChange={this.handleInputChange}
-                      variant="filled"
+                      variant={"outlined"}
+                      style={{ backgroundColor: "white", marginTop: "10px" }}
                       InputProps={{
                         endAdornment: (
                           <Button
@@ -379,8 +398,20 @@ class DashBoard extends Component {
                         )
                       }}
                     ></TextField>
-                  </Paper>
+                  </div>
                 </Grid>
+              </Paper>
+            </Grid>
+            <Grid item xs={3}>
+              <Paper
+                style={{
+                  height: "92vh",
+                  display: "flex",
+                  flexDirection: "column",
+                  backgroundColor: "#EBEBEB"
+                }}
+              >
+                <InfoColumn selectedTweet={selectedTweet} />
               </Paper>
             </Grid>
           </Grid>
