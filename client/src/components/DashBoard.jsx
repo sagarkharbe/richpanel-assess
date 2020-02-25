@@ -157,7 +157,7 @@ class DashBoard extends Component {
                     }}
                   >
                     <h3 style={{ textAlign: "center", color: "#eaeef2" }}>
-                      User Mentions
+                      Mentions
                     </h3>
                   </div>
                   {this.state.isLoading ? (
@@ -221,7 +221,7 @@ class DashBoard extends Component {
                     }}
                   >
                     <h3 style={{ textAlign: "center", color: "#eaeef2" }}>
-                      User Timeline
+                      Timeline
                     </h3>
                   </div>
                   {this.state.isLoading ? (
@@ -290,14 +290,23 @@ class DashBoard extends Component {
                         flexDirection: "column"
                       }}
                     >
+                      <div
+                        style={{
+                          backgroundColor: "#254d7a",
+                          height: "6vh"
+                        }}
+                      >
+                        <h3 style={{ textAlign: "center", color: "#eaeef2" }}>
+                          Thread
+                        </h3>
+                      </div>
                       {selectedTweet && (
                         <ListItem
                           style={{
                             margin: "1%",
                             width: "80%",
                             borderTop: "3px #0c458b solid",
-                            boxShadow: "2px 9px 15px rgba(191, 191, 191, 0.5)",
-                            overflow: "scroll"
+                            boxShadow: "2px 9px 15px rgba(191, 191, 191, 0.5)"
                           }}
                         >
                           <p style={{ fontSize: "1em", marginRight: "5px" }}>
