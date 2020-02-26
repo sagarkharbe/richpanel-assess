@@ -5,32 +5,26 @@ import {
   Container,
   Grid,
   Paper,
-  withStyles,
   List,
   ListItem,
   TextField,
-  InputAdornment,
-  IconButton,
   Button,
-  Typography,
   Divider,
-  ExpansionPanel,
-  ExpansionPanelSummary,
-  ExpansionPanelDetails
+  Avatar
 } from "@material-ui/core";
 import { observer } from "mobx-react";
 import moment from "moment";
 import { appStore } from "../store/appStore";
-import Header from "./Header";
+import Header from "../components/Header";
 import { withRouter } from "react-router-dom";
 import SocketClient from "../shared/socketClient";
-import UserInfo from "./UserInfo";
-import Progress from "./Progress";
-import { MentionsPlaceHolder, ChatPlaceholder } from "./PlaceHolder";
-import Icon from "@mdi/react";
-import { mdiMapMarker } from "@mdi/js";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import InfoColumn from "./InfoColumn";
+import {
+  MentionsPlaceHolder,
+  ChatPlaceholder
+} from "../components/PlaceHolder";
+import InfoColumn from "../components/InfoColumn";
+import ChatItem from "../components/ChatItem";
+import TweetItem from "../components/TweetItem";
 
 class DashBoard extends Component {
   constructor(props) {
@@ -178,50 +172,58 @@ class DashBoard extends Component {
                   {this.state.isLoading ? (
                     Array(10)
                       .fill(0, 0)
-                      .map(e => <MentionsPlaceHolder></MentionsPlaceHolder>)
+                      .map(e => <MentionsPlaceHolder />)
                   ) : this.state.tweets.length > 0 ? (
                     this.state.tweets.map((o, i) => (
-                      <>
-                        <ListItem
-                          key={o.id.toString()}
-                          selected={this.state.selectedIndex !== o.id_str}
-                          onClick={() => {
-                            this.handleReply("@" + o.user.screen_name + " ");
-                            this.handleSelected(o.id_str, o);
-                          }}
-                        >
-                          <div style={{ width: "3.10em", height: "3.10em" }}>
-                            <img
-                              src={o.user.profile_image_url}
-                              style={{
-                                width: "100%",
-                                height: "100%",
-                                display: "block",
-                                borderRadius: "3em"
-                              }}
-                            />
-                          </div>
-                          <div style={{ marginLeft: "10px", maxWidth: "80%" }}>
-                            <b style={{ fontSize: "1em" }}>
-                              {o.user.name}{" "}
-                              <span
-                                style={{
-                                  fontWeight: "normal",
-                                  fontSize: "0.8em"
-                                }}
-                              >
-                                {moment(o.created_at).fromNow()}
-                              </span>
-                            </b>
-                            <p>
-                              <span style={{ fontSize: "0.8em" }}>
-                                {o.text}
-                              </span>
-                            </p>
-                          </div>
-                        </ListItem>
-                        <Divider />
-                      </>
+                      <TweetItem
+                        tweet={o}
+                        selectedIndex={this.state.selectedIndex}
+                        handleReply={s => this.handleReply(s)}
+                        handleSelected={(id_str, o) =>
+                          this.handleSelected(id_str, o)
+                        }
+                      ></TweetItem>
+                      // <>
+                      //   <ListItem
+                      //     key={o.id.toString()}
+                      //     selected={this.state.selectedIndex !== o.id_str}
+                      //     onClick={() => {
+                      //       this.handleReply("@" + o.user.screen_name + " ");
+                      //       this.handleSelected(o.id_str, o);
+                      //     }}
+                      //   >
+                      //     <div style={{ width: "3.10em", height: "3.10em" }}>
+                      //       <img
+                      //         src={o.user.profile_image_url}
+                      //         style={{
+                      //           width: "100%",
+                      //           height: "100%",
+                      //           display: "block",
+                      //           borderRadius: "3em"
+                      //         }}
+                      //       />
+                      //     </div>
+                      //     <div style={{ marginLeft: "10px", maxWidth: "80%" }}>
+                      //       <b style={{ fontSize: "1em" }}>
+                      //         {o.user.name}{" "}
+                      //         <span
+                      //           style={{
+                      //             fontWeight: "normal",
+                      //             fontSize: "0.8em"
+                      //           }}
+                      //         >
+                      //           {moment(o.created_at).fromNow()}
+                      //         </span>
+                      //       </b>
+                      //       <p>
+                      //         <span style={{ fontSize: "0.8em" }}>
+                      //           {o.text}
+                      //         </span>
+                      //       </p>
+                      //     </div>
+                      //   </ListItem>
+                      //   <Divider />
+                      // </>
                     ))
                   ) : (
                     <span>No mentioned tweets found</span>
@@ -248,103 +250,31 @@ class DashBoard extends Component {
                       }}
                     >
                       {this.state.isLoading ? (
-                        <ChatPlaceholder align={"start"}></ChatPlaceholder>
+                        <ChatPlaceholder></ChatPlaceholder>
+                      ) : selectedTweet ? (
+                        <ChatItem
+                          style={{
+                            marginLeft: "1%",
+                            backgroundColor: "#FBFBFB"
+                          }}
+                          item={selectedTweet}
+                        ></ChatItem>
                       ) : (
-                        selectedTweet && (
-                          <ListItem
-                            style={{
-                              margin: "1%",
-                              width: "80%",
-                              borderWidth: "1px",
-                              borderStyle: "solid",
-                              borderColor: "#d3d3d3",
-                              borderRadius: 20,
-                              backgroundColor: "#FBFBFB"
-                            }}
-                          >
-                            <div
-                              style={{
-                                width: "3.10em",
-                                height: "3.10em",
-                                marginRight: "10px"
-                              }}
-                            >
-                              <img
-                                src={selectedTweet.user.profile_image_url}
-                                style={{
-                                  width: "100%",
-                                  height: "100%",
-                                  display: "block",
-                                  borderRadius: "3em"
-                                }}
-                              />
-                            </div>
-                            <span>
-                              <b>{selectedTweet.user.name}</b> <br />
-                              <p
-                                style={{
-                                  fontSize: "1em",
-                                  marginRight: "5px"
-                                }}
-                              >
-                                {selectedTweet.text}
-                              </p>
-                              <p style={{ fontSize: "0.8em" }}>
-                                {moment(selectedTweet.created_at).fromNow()}
-                              </p>
-                            </span>
-                          </ListItem>
-                        )
+                        <span style={{ margin: "auto" }}>
+                          Select any Tweet to view!
+                        </span>
                       )}
                       {replies &&
                         selectedTweet &&
                         replies[selectedTweet.id] &&
                         replies[selectedTweet.id].map((o, i) => (
-                          <ListItem
-                            key={i.toString()}
+                          <ChatItem
                             style={{
-                              margin: "1%",
-                              width: "60%",
-                              marginLeft: "39%",
-                              borderWidth: "1px",
-                              borderStyle: "solid",
-                              borderColor: "#d3d3d3",
-                              borderRadius: 20,
+                              marginLeft: "35%",
                               backgroundColor: "#d8edb8"
                             }}
-                          >
-                            <div
-                              style={{
-                                width: "3.10em",
-                                height: "3.10em",
-                                marginRight: "10px"
-                              }}
-                            >
-                              <img
-                                src={o.user.profile_image_url}
-                                style={{
-                                  width: "100%",
-                                  height: "100%",
-                                  display: "block",
-                                  borderRadius: "3em"
-                                }}
-                              />
-                            </div>
-                            <span>
-                              <b>{o.user.name}</b> <br />
-                              <p
-                                style={{
-                                  fontSize: "1em",
-                                  marginRight: "5px"
-                                }}
-                              >
-                                {o.text}
-                              </p>
-                              <p style={{ fontSize: "0.8em" }}>
-                                {moment(o.created_at).fromNow()}
-                              </p>
-                            </span>
-                          </ListItem>
+                            item={o}
+                          ></ChatItem>
                         ))}
                     </List>
                   </Paper>

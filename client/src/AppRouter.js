@@ -5,8 +5,8 @@ import {
   Switch,
   Redirect
 } from "react-router-dom";
-import LoginPage from "./components/LoginPage";
-import DashBoard from "./components/DashBoard";
+import LoginPage from "./layouts/LoginPage";
+import DashBoard from "./layouts/DashBoard";
 import { appStore } from "./store/appStore";
 import { observer } from "mobx-react";
 

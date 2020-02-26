@@ -1,5 +1,5 @@
 import React, { useState, useEffect, createContext, useContext } from "react";
-import { Container, Button, Typography } from "@material-ui/core";
+import { Container, Button, Typography, Paper } from "@material-ui/core";
 import { withRouter } from "react-router-dom";
 import api from "../shared/customAxios";
 import { apiUrl } from "../shared/vars";
@@ -69,24 +69,48 @@ function LoginPage(props) {
         justifyContent: "center"
       }}
     >
-      <Typography variant="h3" gutterBottom>
-        Getting Started
-      </Typography>
-      <Button
-        disabled={isLoading}
-        variant="contained"
-        size="large"
-        color="primary"
-        aria-label="add"
-        style={{ marginTop: "20px" }}
-        startIcon={<Icon path={mdiTwitter} color="white" size={1} />}
-        onClick={() => {
-          setLoading(true);
-          login();
+      <Paper
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          padding: "16px",
+          backgroundColor: "#F7F7F7"
         }}
       >
-        Login with Twitter
-      </Button>
+        <Typography variant="h3" gutterBottom>
+          Twitter Help Desk
+        </Typography>
+        <Button
+          disabled={isLoading}
+          variant="contained"
+          size="large"
+          color="primary"
+          aria-label="add"
+          style={{ marginTop: "20px", marginBottom: "20px" }}
+          startIcon={<Icon path={mdiTwitter} color="white" size={1} />}
+          onClick={() => {
+            setLoading(true);
+            login();
+          }}
+        >
+          Login with Twitter
+        </Button>
+        <span>OR SignUp &</span>
+        <Button
+          disabled={isLoading}
+          size="small"
+          color="primary"
+          aria-label="add"
+          style={{ marginTop: "20px" }}
+          onClick={() => {
+            setLoading(true);
+            login();
+          }}
+        >
+          Connect Twitter Account
+        </Button>
+      </Paper>
     </Container>
   );
 }
