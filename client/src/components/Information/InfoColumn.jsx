@@ -11,7 +11,7 @@ import InfoCard from "./InfoCard";
 
 export default function InfoColumn(props) {
   const { selectedTweet } = props;
-  const [expanded, setExpanded] = React.useState(false);
+  const [expanded, setExpanded] = React.useState("panel1");
 
   const handleChange = panel => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
@@ -43,7 +43,15 @@ export default function InfoColumn(props) {
               <Typography>Description</Typography>
             </ExpansionPanelSummary>
             <ExpansionPanelDetails>
-              <Typography>{selectedTweet.user.description}</Typography>
+              <span
+                style={{
+                  color: "#747880",
+                  lineHeight: "1.5em",
+                  fontSize: "1.1em"
+                }}
+              >
+                {selectedTweet.user.description}
+              </span>
             </ExpansionPanelDetails>
           </ExpansionPanel>
 
@@ -59,11 +67,18 @@ export default function InfoColumn(props) {
               <Typography>More Details</Typography>
             </ExpansionPanelSummary>
             <ExpansionPanelDetails>
-              <Typography>
+              <span
+                style={{
+                  color: "#747880",
+                  lineHeight: "1.3em",
+                  fontSize: "1.1em"
+                }}
+              >
                 Lorem ipsum is placeholder text commonly used in the graphic,
                 print, and publishing industries for previewing layouts and
                 visual mockups.
-              </Typography>
+              </span>
+              <Typography></Typography>
             </ExpansionPanelDetails>
           </ExpansionPanel>
         </div>

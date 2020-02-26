@@ -21,7 +21,8 @@ export default function ChatItem(props) {
           borderWidth: "1px",
           borderStyle: "solid",
           borderColor: "#d3d3d3",
-          borderRadius: 20,
+          borderRadius: "20px",
+          borderTopLeftRadius: 0,
           backgroundColor: style.backgroundColor
         }}
       >

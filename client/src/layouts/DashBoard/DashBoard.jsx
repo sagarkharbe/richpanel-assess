@@ -23,6 +23,7 @@ class DashBoard extends Component {
       selectedTweet: null,
       selectedIndex: null,
       replies: {},
+      replyButtonDisabled: false,
       reply: ""
     };
   }
@@ -77,6 +78,11 @@ class DashBoard extends Component {
   };
 
   postReplies = async query => {
+    if (this.state.selectedTweet === null) {
+      window.alert("Please select a tweet to reply");
+      return;
+    }
+    this.setState({ replyButtonDisabled: true });
     const { data } = await api.post(
       `${apiUrl}/api/twitter/postReplies`,
       JSON.stringify({
@@ -93,7 +99,8 @@ class DashBoard extends Component {
 
     this.setState({
       reply: "@" + query.selectedTweet.user.screen_name + " ",
-      replies
+      replies,
+      replyButtonDisabled: false
     });
   };
 
@@ -113,7 +120,8 @@ class DashBoard extends Component {
       selectedTweet,
       reply,
       tweets,
-      isLoading
+      isLoading,
+      replyButtonDisabled
     } = this.state;
     console.log(replies);
     return (
@@ -156,6 +164,7 @@ class DashBoard extends Component {
               <Grid item xs={12}>
                 <ReplyBox
                   reply={reply}
+                  replyButtonDisabled={replyButtonDisabled}
                   handleInputChange={this.handleInputChange}
                   postReplies={() => {
                     this.postReplies({ reply, selectedTweet, replies });

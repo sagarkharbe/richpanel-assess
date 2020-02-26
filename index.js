@@ -11,7 +11,6 @@ const cors = require("cors");
 const { SOCKET_PORT, SOCKET_URL } = require("./config/keys");
 const socketUtils = require("./config/socketUtils");
 const { setUserActivityWebhook } = require("./lib/twitterWebHooks");
-//const helmet = require('helmet')
 
 var whitelist = ["http://localhost:3000", "https://twitter-rp.herokuapp.com"];
 var corsOptions = {
@@ -33,7 +32,7 @@ const app = express();
  */
 
 // set up cors to allow us to accept requests from our client
-app.use(cors(corsOptions));
+//app.use(cors(corsOptions));
 
 //passport authentication strategy for twitter
 // initalize passport

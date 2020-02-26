@@ -78,7 +78,7 @@ function LoginPage(props) {
           padding: "25px"
         }}
       >
-        <Typography variant="h3" gutterBottom>
+        <Typography variant="h3" style={{ color: "#4a4b54" }} gutterBottom>
           Twitter Deck
         </Typography>
         <Button
@@ -96,7 +96,7 @@ function LoginPage(props) {
         >
           Login with Twitter
         </Button>
-        <span>OR SignUp below</span>
+        <span style={{ color: "#747880" }}>OR SignUp below</span>
         <Button
           disabled={isLoading}
           size="small"
