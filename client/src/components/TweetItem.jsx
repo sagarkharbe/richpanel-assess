@@ -3,15 +3,15 @@ import { ListItem, Avatar, Divider } from "@material-ui/core";
 import moment from "moment";
 
 export default function TweetItem(props) {
-  const { tweet } = props;
+  let { tweet, handleReply, handleSelected } = props;
   return (
     <>
       <ListItem
         key={tweet.id.toString()}
         selected={props.selectedIndex !== tweet.id_str}
         onClick={() => {
-          props.handleReply("@" + tweet.user.screen_name + " ");
-          props.handleSelected(tweet.id_str, tweet);
+          handleReply("@" + tweet.user.screen_name + " ");
+          handleSelected(tweet.id_str, tweet);
         }}
       >
         <Avatar

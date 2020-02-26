@@ -3,7 +3,7 @@ import { ListItem, Avatar } from "@material-ui/core";
 import moment from "moment";
 
 export default function ChatItem(props) {
-  const { style, item } = props;
+  let { style, item } = props;
   return (
     <div
       style={{
