@@ -7,10 +7,10 @@ import { appStore } from "../store/appStore";
 import Header from "../components/Header";
 import { withRouter } from "react-router-dom";
 import SocketClient from "../shared/socketClient";
-import InfoColumn from "../components/InfoColumn";
 import ReplyBox from "../components/ReplyBox";
 import TweetList from "../components/TweetList";
 import ChatList from "../components/ChatList";
+import InfoColumn from "../components/InfoColumn";
 
 class DashBoard extends Component {
   constructor(props) {
@@ -44,16 +44,11 @@ class DashBoard extends Component {
       ? appStore.user
       : await api.get(`${apiUrl}/api/twitter/self`);
     const tweets = await this.getTweets();
-    const userTweets = await this.getUserTweets();
-    this.setState(
-      {
-        isLoading: false,
-        user,
-        userTweets,
-        tweets
-      },
-      () => console.log(this.state.userTweets)
-    );
+    this.setState({
+      isLoading: false,
+      user,
+      tweets
+    });
     SocketClient({
       getTweets: async () => {
         const tweets = await this.getTweets();
@@ -96,23 +91,21 @@ class DashBoard extends Component {
     }
     replies[query.selectedTweet.id].push(data);
 
-    this.setState(
-      {
-        reply: "@" + query.selectedTweet.user.screen_name + " ",
-        replies
-      },
-      () => console.log(this.state.replies)
-    );
+    this.setState({
+      reply: "@" + query.selectedTweet.user.screen_name + " ",
+      replies
+    });
   };
 
   logout = async () => {
     window.localStorage.clear();
     appStore.changeLoginState(false, null, "");
-    //wait for appStore to chage login state
+    //wait for appStore to change login state & localstorage to clear
     setTimeout(() => {
       this.props.history.push("/");
     }, 100);
   };
+
   render() {
     const {
       replies,
@@ -122,6 +115,7 @@ class DashBoard extends Component {
       tweets,
       isLoading
     } = this.state;
+
     return (
       <div
         style={{
@@ -172,16 +166,7 @@ class DashBoard extends Component {
           </Grid>
 
           <Grid item xs={3}>
-            <Paper
-              style={{
-                height: "92vh",
-                display: "flex",
-                flexDirection: "column",
-                backgroundColor: "#EBEBEB"
-              }}
-            >
-              <InfoColumn selectedTweet={selectedTweet} />
-            </Paper>
+            <InfoColumn selectedTweet={selectedTweet} />
           </Grid>
         </Grid>
       </div>

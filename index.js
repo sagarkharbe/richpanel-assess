@@ -33,7 +33,7 @@ const app = express();
  */
 
 // set up cors to allow us to accept requests from our client
-app.use(cors(corsOptions));
+//app.use(cors(corsOptions));
 
 //passport authentication strategy for twitter
 // initalize passport
@@ -55,6 +55,7 @@ app.use("/api", require("./routes"));
 // TODO: add socket.io connection later
 setUserActivityWebhook(app);
 
+// Redirect to client/build to serve html for any router other than /api
 if (process.env.NODE_ENV === "production") {
   app.use("/", express.static(path.join(__dirname, "./client/build")));
   app.get("*", (req, res) => {
@@ -62,22 +63,9 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-// app.get("/", handleRender);
-// app.get("*", handleRender);
-
-// function handleRender(req, res) {
-//   res.sendFile(path.join(__dirname, "/client/build/index.html"));
-// }
-
 const server = http.createServer(app);
 
 global.io = require("socket.io").listen(server);
-
-// server.listen(SOCKET_PORT, SOCKET_URL, () =>
-//   console.info(
-//     chalk.yellow(`socket server started on ${SOCKET_URL}:${SOCKET_PORT}`)
-//   )
-// );
 
 socketUtils.newConnection();
 
