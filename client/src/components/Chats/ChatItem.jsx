@@ -26,16 +26,17 @@ export default function ChatItem(props) {
         }}
       >
         <span>
-          <b>{item.user.name}</b> <br />
+          <b className="user-name">{item.user.name}</b> <br />
           <p
             style={{
               fontSize: "1em",
               marginRight: "5px"
             }}
+            className="user-tweet"
           >
             {item.text}
           </p>
-          <p style={{ fontSize: "0.8em" }}>
+          <p className="created-at" style={{ fontSize: "0.8em" }}>
             {moment(item.created_at).fromNow()}
           </p>
         </span>

@@ -1,0 +1,155 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Chat Item renders component 1`] = `
+<ChatItem
+  item={
+    Object {
+      "user": Object {
+        "created_at": "00:00:00",
+        "name": "test",
+        "profile_image_url": "string",
+        "text": "some text",
+      },
+    }
+  }
+  style={
+    Object {
+      "backgroundColor": "#FBFBFB",
+      "marginLeft": "1%",
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "flexDirection": "row",
+        "marginLeft": "1%",
+      }
+    }
+  >
+    <WithStyles(ForwardRef(Avatar))
+      alt="test"
+      src="string"
+    >
+      <ForwardRef(Avatar)
+        alt="test"
+        classes={
+          Object {
+            "circle": "MuiAvatar-circle",
+            "colorDefault": "MuiAvatar-colorDefault",
+            "fallback": "MuiAvatar-fallback",
+            "img": "MuiAvatar-img",
+            "root": "MuiAvatar-root",
+            "rounded": "MuiAvatar-rounded",
+            "square": "MuiAvatar-square",
+          }
+        }
+        src="string"
+      >
+        <div
+          className="MuiAvatar-root MuiAvatar-circle"
+        >
+          <img
+            alt="test"
+            className="MuiAvatar-img"
+            src="string"
+          />
+        </div>
+      </ForwardRef(Avatar)>
+    </WithStyles(ForwardRef(Avatar))>
+    <WithStyles(ForwardRef(ListItem))
+      style={
+        Object {
+          "backgroundColor": "#FBFBFB",
+          "borderColor": "#d3d3d3",
+          "borderRadius": 20,
+          "borderStyle": "solid",
+          "borderWidth": "1px",
+          "marginBottom": "2%",
+          "marginLeft": "1%",
+          "width": "75%",
+        }
+      }
+    >
+      <ForwardRef(ListItem)
+        classes={
+          Object {
+            "alignItemsFlexStart": "MuiListItem-alignItemsFlexStart",
+            "button": "MuiListItem-button",
+            "container": "MuiListItem-container",
+            "dense": "MuiListItem-dense",
+            "disabled": "Mui-disabled",
+            "divider": "MuiListItem-divider",
+            "focusVisible": "Mui-focusVisible",
+            "gutters": "MuiListItem-gutters",
+            "root": "MuiListItem-root",
+            "secondaryAction": "MuiListItem-secondaryAction",
+            "selected": "Mui-selected",
+          }
+        }
+        style={
+          Object {
+            "backgroundColor": "#FBFBFB",
+            "borderColor": "#d3d3d3",
+            "borderRadius": 20,
+            "borderStyle": "solid",
+            "borderWidth": "1px",
+            "marginBottom": "2%",
+            "marginLeft": "1%",
+            "width": "75%",
+          }
+        }
+      >
+        <li
+          className="MuiListItem-root MuiListItem-gutters"
+          disabled={false}
+          style={
+            Object {
+              "backgroundColor": "#FBFBFB",
+              "borderColor": "#d3d3d3",
+              "borderRadius": 20,
+              "borderStyle": "solid",
+              "borderWidth": "1px",
+              "marginBottom": "2%",
+              "marginLeft": "1%",
+              "width": "75%",
+            }
+          }
+        >
+          <span
+            key=".0"
+          >
+            <b
+              className="user-name"
+            >
+              test
+            </b>
+             
+            <br />
+            <p
+              className="user-tweet"
+              style={
+                Object {
+                  "fontSize": "1em",
+                  "marginRight": "5px",
+                }
+              }
+            />
+            <p
+              className="created-at"
+              style={
+                Object {
+                  "fontSize": "0.8em",
+                }
+              }
+            >
+              a few seconds ago
+            </p>
+          </span>
+        </li>
+      </ForwardRef(ListItem)>
+    </WithStyles(ForwardRef(ListItem))>
+  </div>
+</ChatItem>
+`;

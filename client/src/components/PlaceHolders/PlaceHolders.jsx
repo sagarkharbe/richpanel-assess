@@ -4,7 +4,7 @@ import { Divider } from "@material-ui/core";
 
 export function MentionsPlaceHolder() {
   return (
-    <div>
+    <div className="placeholder-list">
       <div
         style={{
           display: "flex",
@@ -37,6 +37,7 @@ export function MentionsPlaceHolder() {
 export function ChatPlaceholder() {
   return (
     <div
+      className="placeholder-chat"
       style={{
         display: "flex",
         flexDirection: "column",

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Container, Button, Typography, Paper } from "@material-ui/core";
 import { withRouter } from "react-router-dom";
-import api from "../shared/customAxios";
-import { apiUrl } from "../shared/vars";
+import api from "../../shared/customAxios";
+import { apiUrl } from "../../shared/vars";
 import { observer } from "mobx-react";
-import { appStore } from "../store/appStore";
+import { appStore } from "../../store/appStore";
 import Icon from "@mdi/react";
 import { mdiTwitter } from "@mdi/js";
 
@@ -58,7 +58,7 @@ function LoginPage(props) {
   }, []);
 
   return (
-    <Container
+    <div
       style={{
         width: "100%",
         height: "100%",
@@ -66,7 +66,8 @@ function LoginPage(props) {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
+        backgroundColor: "#F7F7F7"
       }}
     >
       <Paper
@@ -74,12 +75,11 @@ function LoginPage(props) {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          padding: "16px",
-          backgroundColor: "#F7F7F7"
+          padding: "25px"
         }}
       >
         <Typography variant="h3" gutterBottom>
-          Twitter Help Desk
+          Twitter Deck
         </Typography>
         <Button
           disabled={isLoading}
@@ -96,7 +96,7 @@ function LoginPage(props) {
         >
           Login with Twitter
         </Button>
-        <span>OR SignUp &</span>
+        <span>OR SignUp below</span>
         <Button
           disabled={isLoading}
           size="small"
@@ -111,7 +111,7 @@ function LoginPage(props) {
           Connect Twitter Account
         </Button>
       </Paper>
-    </Container>
+    </div>
   );
 }
 

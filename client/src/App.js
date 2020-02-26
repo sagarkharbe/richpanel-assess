@@ -4,7 +4,7 @@ import { observer } from "mobx-react";
 import { appStore } from "./store/appStore";
 import api from "./shared/customAxios";
 import { apiUrl } from "./shared/vars";
-import Progress from "./components/Progress";
+import Progress from "./components/Progress/Progress";
 
 class App extends Component {
   state = {

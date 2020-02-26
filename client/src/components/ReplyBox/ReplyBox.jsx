@@ -36,6 +36,7 @@ export default function ReplyBox(props) {
         InputProps={{
           endAdornment: (
             <Button
+              className="reply"
               color="primary"
               variant="contained"
               style={{ borderRadius: "10%" }}

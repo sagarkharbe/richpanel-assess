@@ -1,16 +1,16 @@
 import React, { Component } from "react";
-import api from "../shared/customAxios";
-import { apiUrl } from "../shared/vars";
+import api from "../../shared/customAxios";
+import { apiUrl } from "../../shared/vars";
 import { Grid, Paper } from "@material-ui/core";
 import { observer } from "mobx-react";
-import { appStore } from "../store/appStore";
-import Header from "../components/Header";
+import { appStore } from "../../store/appStore";
+import Header from "../../components/Header/Header";
 import { withRouter } from "react-router-dom";
-import SocketClient from "../shared/socketClient";
-import ReplyBox from "../components/ReplyBox";
-import TweetList from "../components/TweetList";
-import ChatList from "../components/ChatList";
-import InfoColumn from "../components/InfoColumn";
+import SocketClient from "../../shared/socketClient";
+import ReplyBox from "../../components/ReplyBox/ReplyBox";
+import TweetList from "../../components/Tweets/TweetList";
+import ChatList from "../../components/Chats/ChatList";
+import InfoColumn from "../../components/Information/InfoColumn";
 
 class DashBoard extends Component {
   constructor(props) {
@@ -115,7 +115,7 @@ class DashBoard extends Component {
       tweets,
       isLoading
     } = this.state;
-
+    console.log(replies);
     return (
       <div
         style={{
@@ -123,7 +123,7 @@ class DashBoard extends Component {
           width: "100%"
         }}
       >
-        <Header logout={this.logout}></Header>
+        <Header logout={this.logout} />
 
         <Grid container spacing={0}>
           <Grid item xs={3}>

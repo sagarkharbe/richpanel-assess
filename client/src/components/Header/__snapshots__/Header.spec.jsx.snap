@@ -1,0 +1,314 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header Component renders correctly 1`] = `
+<Header>
+  <div
+    className="makeStyles-root-1"
+  >
+    <WithStyles(ForwardRef(AppBar))
+      position="static"
+    >
+      <ForwardRef(AppBar)
+        classes={
+          Object {
+            "colorDefault": "MuiAppBar-colorDefault",
+            "colorInherit": "MuiAppBar-colorInherit",
+            "colorPrimary": "MuiAppBar-colorPrimary",
+            "colorSecondary": "MuiAppBar-colorSecondary",
+            "colorTransparent": "MuiAppBar-colorTransparent",
+            "positionAbsolute": "MuiAppBar-positionAbsolute",
+            "positionFixed": "MuiAppBar-positionFixed",
+            "positionRelative": "MuiAppBar-positionRelative",
+            "positionStatic": "MuiAppBar-positionStatic",
+            "positionSticky": "MuiAppBar-positionSticky",
+            "root": "MuiAppBar-root",
+          }
+        }
+        position="static"
+      >
+        <WithStyles(ForwardRef(Paper))
+          className="MuiAppBar-root MuiAppBar-positionStatic MuiAppBar-colorPrimary"
+          component="header"
+          elevation={4}
+          square={true}
+        >
+          <ForwardRef(Paper)
+            className="MuiAppBar-root MuiAppBar-positionStatic MuiAppBar-colorPrimary"
+            classes={
+              Object {
+                "elevation0": "MuiPaper-elevation0",
+                "elevation1": "MuiPaper-elevation1",
+                "elevation10": "MuiPaper-elevation10",
+                "elevation11": "MuiPaper-elevation11",
+                "elevation12": "MuiPaper-elevation12",
+                "elevation13": "MuiPaper-elevation13",
+                "elevation14": "MuiPaper-elevation14",
+                "elevation15": "MuiPaper-elevation15",
+                "elevation16": "MuiPaper-elevation16",
+                "elevation17": "MuiPaper-elevation17",
+                "elevation18": "MuiPaper-elevation18",
+                "elevation19": "MuiPaper-elevation19",
+                "elevation2": "MuiPaper-elevation2",
+                "elevation20": "MuiPaper-elevation20",
+                "elevation21": "MuiPaper-elevation21",
+                "elevation22": "MuiPaper-elevation22",
+                "elevation23": "MuiPaper-elevation23",
+                "elevation24": "MuiPaper-elevation24",
+                "elevation3": "MuiPaper-elevation3",
+                "elevation4": "MuiPaper-elevation4",
+                "elevation5": "MuiPaper-elevation5",
+                "elevation6": "MuiPaper-elevation6",
+                "elevation7": "MuiPaper-elevation7",
+                "elevation8": "MuiPaper-elevation8",
+                "elevation9": "MuiPaper-elevation9",
+                "outlined": "MuiPaper-outlined",
+                "root": "MuiPaper-root",
+                "rounded": "MuiPaper-rounded",
+              }
+            }
+            component="header"
+            elevation={4}
+            square={true}
+          >
+            <header
+              className="MuiPaper-root MuiAppBar-root MuiAppBar-positionStatic MuiAppBar-colorPrimary MuiPaper-elevation4"
+            >
+              <WithStyles(ForwardRef(Toolbar))>
+                <ForwardRef(Toolbar)
+                  classes={
+                    Object {
+                      "dense": "MuiToolbar-dense",
+                      "gutters": "MuiToolbar-gutters",
+                      "regular": "MuiToolbar-regular",
+                      "root": "MuiToolbar-root",
+                    }
+                  }
+                >
+                  <div
+                    className="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
+                  >
+                    <Icon
+                      color="white"
+                      horizontal={false}
+                      path="M22.46,6C21.69,6.35 20.86,6.58 20,6.69C20.88,6.16 21.56,5.32 21.88,4.31C21.05,4.81 20.13,5.16 19.16,5.36C18.37,4.5 17.26,4 16,4C13.65,4 11.73,5.92 11.73,8.29C11.73,8.63 11.77,8.96 11.84,9.27C8.28,9.09 5.11,7.38 3,4.79C2.63,5.42 2.42,6.16 2.42,6.94C2.42,8.43 3.17,9.75 4.33,10.5C3.62,10.5 2.96,10.3 2.38,10C2.38,10 2.38,10 2.38,10.03C2.38,12.11 3.86,13.85 5.82,14.24C5.46,14.34 5.08,14.39 4.69,14.39C4.42,14.39 4.15,14.36 3.89,14.31C4.43,16 6,17.26 7.89,17.29C6.43,18.45 4.58,19.13 2.56,19.13C2.22,19.13 1.88,19.11 1.54,19.07C3.44,20.29 5.7,21 8.12,21C16,21 20.33,14.46 20.33,8.79C20.33,8.6 20.33,8.42 20.32,8.23C21.16,7.63 21.88,6.87 22.46,6Z"
+                      rotate={0}
+                      size={1}
+                      spin={false}
+                      vertical={false}
+                    >
+                      <svg
+                        role="presentation"
+                        style={
+                          Object {
+                            "height": "1.5rem",
+                            "width": "1.5rem",
+                          }
+                        }
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M22.46,6C21.69,6.35 20.86,6.58 20,6.69C20.88,6.16 21.56,5.32 21.88,4.31C21.05,4.81 20.13,5.16 19.16,5.36C18.37,4.5 17.26,4 16,4C13.65,4 11.73,5.92 11.73,8.29C11.73,8.63 11.77,8.96 11.84,9.27C8.28,9.09 5.11,7.38 3,4.79C2.63,5.42 2.42,6.16 2.42,6.94C2.42,8.43 3.17,9.75 4.33,10.5C3.62,10.5 2.96,10.3 2.38,10C2.38,10 2.38,10 2.38,10.03C2.38,12.11 3.86,13.85 5.82,14.24C5.46,14.34 5.08,14.39 4.69,14.39C4.42,14.39 4.15,14.36 3.89,14.31C4.43,16 6,17.26 7.89,17.29C6.43,18.45 4.58,19.13 2.56,19.13C2.22,19.13 1.88,19.11 1.54,19.07C3.44,20.29 5.7,21 8.12,21C16,21 20.33,14.46 20.33,8.79C20.33,8.6 20.33,8.42 20.32,8.23C21.16,7.63 21.88,6.87 22.46,6Z"
+                          style={
+                            Object {
+                              "fill": "white",
+                            }
+                          }
+                        />
+                      </svg>
+                    </Icon>
+                    <WithStyles(ForwardRef(Typography))
+                      className="makeStyles-title-2"
+                      style={
+                        Object {
+                          "marginLeft": "5px",
+                        }
+                      }
+                      variant="h6"
+                    >
+                      <ForwardRef(Typography)
+                        className="makeStyles-title-2"
+                        classes={
+                          Object {
+                            "alignCenter": "MuiTypography-alignCenter",
+                            "alignJustify": "MuiTypography-alignJustify",
+                            "alignLeft": "MuiTypography-alignLeft",
+                            "alignRight": "MuiTypography-alignRight",
+                            "body1": "MuiTypography-body1",
+                            "body2": "MuiTypography-body2",
+                            "button": "MuiTypography-button",
+                            "caption": "MuiTypography-caption",
+                            "colorError": "MuiTypography-colorError",
+                            "colorInherit": "MuiTypography-colorInherit",
+                            "colorPrimary": "MuiTypography-colorPrimary",
+                            "colorSecondary": "MuiTypography-colorSecondary",
+                            "colorTextPrimary": "MuiTypography-colorTextPrimary",
+                            "colorTextSecondary": "MuiTypography-colorTextSecondary",
+                            "displayBlock": "MuiTypography-displayBlock",
+                            "displayInline": "MuiTypography-displayInline",
+                            "gutterBottom": "MuiTypography-gutterBottom",
+                            "h1": "MuiTypography-h1",
+                            "h2": "MuiTypography-h2",
+                            "h3": "MuiTypography-h3",
+                            "h4": "MuiTypography-h4",
+                            "h5": "MuiTypography-h5",
+                            "h6": "MuiTypography-h6",
+                            "noWrap": "MuiTypography-noWrap",
+                            "overline": "MuiTypography-overline",
+                            "paragraph": "MuiTypography-paragraph",
+                            "root": "MuiTypography-root",
+                            "srOnly": "MuiTypography-srOnly",
+                            "subtitle1": "MuiTypography-subtitle1",
+                            "subtitle2": "MuiTypography-subtitle2",
+                          }
+                        }
+                        style={
+                          Object {
+                            "marginLeft": "5px",
+                          }
+                        }
+                        variant="h6"
+                      >
+                        <h6
+                          className="MuiTypography-root makeStyles-title-2 MuiTypography-h6"
+                          style={
+                            Object {
+                              "marginLeft": "5px",
+                            }
+                          }
+                        >
+                          Twitter Help Desk
+                        </h6>
+                      </ForwardRef(Typography)>
+                    </WithStyles(ForwardRef(Typography))>
+                    <WithStyles(ForwardRef(Button))
+                      color="inherit"
+                      size="medium"
+                    >
+                      <ForwardRef(Button)
+                        classes={
+                          Object {
+                            "colorInherit": "MuiButton-colorInherit",
+                            "contained": "MuiButton-contained",
+                            "containedPrimary": "MuiButton-containedPrimary",
+                            "containedSecondary": "MuiButton-containedSecondary",
+                            "containedSizeLarge": "MuiButton-containedSizeLarge",
+                            "containedSizeSmall": "MuiButton-containedSizeSmall",
+                            "disableElevation": "MuiButton-disableElevation",
+                            "disabled": "Mui-disabled",
+                            "endIcon": "MuiButton-endIcon",
+                            "focusVisible": "Mui-focusVisible",
+                            "fullWidth": "MuiButton-fullWidth",
+                            "iconSizeLarge": "MuiButton-iconSizeLarge",
+                            "iconSizeMedium": "MuiButton-iconSizeMedium",
+                            "iconSizeSmall": "MuiButton-iconSizeSmall",
+                            "label": "MuiButton-label",
+                            "outlined": "MuiButton-outlined",
+                            "outlinedPrimary": "MuiButton-outlinedPrimary",
+                            "outlinedSecondary": "MuiButton-outlinedSecondary",
+                            "outlinedSizeLarge": "MuiButton-outlinedSizeLarge",
+                            "outlinedSizeSmall": "MuiButton-outlinedSizeSmall",
+                            "root": "MuiButton-root",
+                            "sizeLarge": "MuiButton-sizeLarge",
+                            "sizeSmall": "MuiButton-sizeSmall",
+                            "startIcon": "MuiButton-startIcon",
+                            "text": "MuiButton-text",
+                            "textPrimary": "MuiButton-textPrimary",
+                            "textSecondary": "MuiButton-textSecondary",
+                            "textSizeLarge": "MuiButton-textSizeLarge",
+                            "textSizeSmall": "MuiButton-textSizeSmall",
+                          }
+                        }
+                        color="inherit"
+                        size="medium"
+                      >
+                        <WithStyles(ForwardRef(ButtonBase))
+                          className="MuiButton-root MuiButton-text MuiButton-colorInherit"
+                          component="button"
+                          disabled={false}
+                          focusRipple={true}
+                          focusVisibleClassName="Mui-focusVisible"
+                          type="button"
+                        >
+                          <ForwardRef(ButtonBase)
+                            className="MuiButton-root MuiButton-text MuiButton-colorInherit"
+                            classes={
+                              Object {
+                                "disabled": "Mui-disabled",
+                                "focusVisible": "Mui-focusVisible",
+                                "root": "MuiButtonBase-root",
+                              }
+                            }
+                            component="button"
+                            disabled={false}
+                            focusRipple={true}
+                            focusVisibleClassName="Mui-focusVisible"
+                            type="button"
+                          >
+                            <button
+                              className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit"
+                              disabled={false}
+                              onBlur={[Function]}
+                              onDragLeave={[Function]}
+                              onFocus={[Function]}
+                              onKeyDown={[Function]}
+                              onKeyUp={[Function]}
+                              onMouseDown={[Function]}
+                              onMouseLeave={[Function]}
+                              onMouseUp={[Function]}
+                              onTouchEnd={[Function]}
+                              onTouchMove={[Function]}
+                              onTouchStart={[Function]}
+                              tabIndex={0}
+                              type="button"
+                            >
+                              <span
+                                className="MuiButton-label"
+                              >
+                                Logout
+                              </span>
+                              <NoSsr>
+                                <WithStyles(undefined)
+                                  center={false}
+                                >
+                                  <ForwardRef(TouchRipple)
+                                    center={false}
+                                    classes={
+                                      Object {
+                                        "child": "MuiTouchRipple-child",
+                                        "childLeaving": "MuiTouchRipple-childLeaving",
+                                        "childPulsate": "MuiTouchRipple-childPulsate",
+                                        "ripple": "MuiTouchRipple-ripple",
+                                        "ripplePulsate": "MuiTouchRipple-ripplePulsate",
+                                        "rippleVisible": "MuiTouchRipple-rippleVisible",
+                                        "root": "MuiTouchRipple-root",
+                                      }
+                                    }
+                                  >
+                                    <span
+                                      className="MuiTouchRipple-root"
+                                    >
+                                      <TransitionGroup
+                                        childFactory={[Function]}
+                                        component={null}
+                                        exit={true}
+                                      />
+                                    </span>
+                                  </ForwardRef(TouchRipple)>
+                                </WithStyles(undefined)>
+                              </NoSsr>
+                            </button>
+                          </ForwardRef(ButtonBase)>
+                        </WithStyles(ForwardRef(ButtonBase))>
+                      </ForwardRef(Button)>
+                    </WithStyles(ForwardRef(Button))>
+                  </div>
+                </ForwardRef(Toolbar)>
+              </WithStyles(ForwardRef(Toolbar))>
+            </header>
+          </ForwardRef(Paper)>
+        </WithStyles(ForwardRef(Paper))>
+      </ForwardRef(AppBar)>
+    </WithStyles(ForwardRef(AppBar))>
+  </div>
+</Header>
+`;

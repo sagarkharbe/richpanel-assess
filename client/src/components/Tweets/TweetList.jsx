@@ -1,6 +1,6 @@
 import React from "react";
 import { Paper, List } from "@material-ui/core";
-import { MentionsPlaceHolder } from "./PlaceHolders";
+import { MentionsPlaceHolder } from "../PlaceHolders/PlaceHolders";
 import TweetItem from "./TweetItem";
 
 export default function TweetList(props) {

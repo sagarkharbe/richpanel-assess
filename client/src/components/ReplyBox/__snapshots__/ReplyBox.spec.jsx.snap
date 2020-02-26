@@ -1,0 +1,796 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Replybox component renders correctly 1`] = `
+<ReplyBox>
+  <div
+    style={
+      Object {
+        "flexDirection": "column",
+        "marginLeft": "10px",
+        "marginRight": "10px",
+      }
+    }
+  >
+    <WithStyles(ForwardRef(Button))
+      style={
+        Object {
+          "borderBottomColor": "blue",
+          "borderBottomStyle": "solid",
+          "borderBottomWidth": "2px",
+          "borderRadius": 0,
+        }
+      }
+    >
+      <ForwardRef(Button)
+        classes={
+          Object {
+            "colorInherit": "MuiButton-colorInherit",
+            "contained": "MuiButton-contained",
+            "containedPrimary": "MuiButton-containedPrimary",
+            "containedSecondary": "MuiButton-containedSecondary",
+            "containedSizeLarge": "MuiButton-containedSizeLarge",
+            "containedSizeSmall": "MuiButton-containedSizeSmall",
+            "disableElevation": "MuiButton-disableElevation",
+            "disabled": "Mui-disabled",
+            "endIcon": "MuiButton-endIcon",
+            "focusVisible": "Mui-focusVisible",
+            "fullWidth": "MuiButton-fullWidth",
+            "iconSizeLarge": "MuiButton-iconSizeLarge",
+            "iconSizeMedium": "MuiButton-iconSizeMedium",
+            "iconSizeSmall": "MuiButton-iconSizeSmall",
+            "label": "MuiButton-label",
+            "outlined": "MuiButton-outlined",
+            "outlinedPrimary": "MuiButton-outlinedPrimary",
+            "outlinedSecondary": "MuiButton-outlinedSecondary",
+            "outlinedSizeLarge": "MuiButton-outlinedSizeLarge",
+            "outlinedSizeSmall": "MuiButton-outlinedSizeSmall",
+            "root": "MuiButton-root",
+            "sizeLarge": "MuiButton-sizeLarge",
+            "sizeSmall": "MuiButton-sizeSmall",
+            "startIcon": "MuiButton-startIcon",
+            "text": "MuiButton-text",
+            "textPrimary": "MuiButton-textPrimary",
+            "textSecondary": "MuiButton-textSecondary",
+            "textSizeLarge": "MuiButton-textSizeLarge",
+            "textSizeSmall": "MuiButton-textSizeSmall",
+          }
+        }
+        style={
+          Object {
+            "borderBottomColor": "blue",
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": "2px",
+            "borderRadius": 0,
+          }
+        }
+      >
+        <WithStyles(ForwardRef(ButtonBase))
+          className="MuiButton-root MuiButton-text"
+          component="button"
+          disabled={false}
+          focusRipple={true}
+          focusVisibleClassName="Mui-focusVisible"
+          style={
+            Object {
+              "borderBottomColor": "blue",
+              "borderBottomStyle": "solid",
+              "borderBottomWidth": "2px",
+              "borderRadius": 0,
+            }
+          }
+          type="button"
+        >
+          <ForwardRef(ButtonBase)
+            className="MuiButton-root MuiButton-text"
+            classes={
+              Object {
+                "disabled": "Mui-disabled",
+                "focusVisible": "Mui-focusVisible",
+                "root": "MuiButtonBase-root",
+              }
+            }
+            component="button"
+            disabled={false}
+            focusRipple={true}
+            focusVisibleClassName="Mui-focusVisible"
+            style={
+              Object {
+                "borderBottomColor": "blue",
+                "borderBottomStyle": "solid",
+                "borderBottomWidth": "2px",
+                "borderRadius": 0,
+              }
+            }
+            type="button"
+          >
+            <button
+              className="MuiButtonBase-root MuiButton-root MuiButton-text"
+              disabled={false}
+              onBlur={[Function]}
+              onDragLeave={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+              onMouseDown={[Function]}
+              onMouseLeave={[Function]}
+              onMouseUp={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              style={
+                Object {
+                  "borderBottomColor": "blue",
+                  "borderBottomStyle": "solid",
+                  "borderBottomWidth": "2px",
+                  "borderRadius": 0,
+                }
+              }
+              tabIndex={0}
+              type="button"
+            >
+              <span
+                className="MuiButton-label"
+              >
+                Reply
+              </span>
+              <NoSsr>
+                <WithStyles(undefined)
+                  center={false}
+                >
+                  <ForwardRef(TouchRipple)
+                    center={false}
+                    classes={
+                      Object {
+                        "child": "MuiTouchRipple-child",
+                        "childLeaving": "MuiTouchRipple-childLeaving",
+                        "childPulsate": "MuiTouchRipple-childPulsate",
+                        "ripple": "MuiTouchRipple-ripple",
+                        "ripplePulsate": "MuiTouchRipple-ripplePulsate",
+                        "rippleVisible": "MuiTouchRipple-rippleVisible",
+                        "root": "MuiTouchRipple-root",
+                      }
+                    }
+                  >
+                    <span
+                      className="MuiTouchRipple-root"
+                    >
+                      <TransitionGroup
+                        childFactory={[Function]}
+                        component={null}
+                        exit={true}
+                      />
+                    </span>
+                  </ForwardRef(TouchRipple)>
+                </WithStyles(undefined)>
+              </NoSsr>
+            </button>
+          </ForwardRef(ButtonBase)>
+        </WithStyles(ForwardRef(ButtonBase))>
+      </ForwardRef(Button)>
+    </WithStyles(ForwardRef(Button))>
+    <WithStyles(ForwardRef(Button))>
+      <ForwardRef(Button)
+        classes={
+          Object {
+            "colorInherit": "MuiButton-colorInherit",
+            "contained": "MuiButton-contained",
+            "containedPrimary": "MuiButton-containedPrimary",
+            "containedSecondary": "MuiButton-containedSecondary",
+            "containedSizeLarge": "MuiButton-containedSizeLarge",
+            "containedSizeSmall": "MuiButton-containedSizeSmall",
+            "disableElevation": "MuiButton-disableElevation",
+            "disabled": "Mui-disabled",
+            "endIcon": "MuiButton-endIcon",
+            "focusVisible": "Mui-focusVisible",
+            "fullWidth": "MuiButton-fullWidth",
+            "iconSizeLarge": "MuiButton-iconSizeLarge",
+            "iconSizeMedium": "MuiButton-iconSizeMedium",
+            "iconSizeSmall": "MuiButton-iconSizeSmall",
+            "label": "MuiButton-label",
+            "outlined": "MuiButton-outlined",
+            "outlinedPrimary": "MuiButton-outlinedPrimary",
+            "outlinedSecondary": "MuiButton-outlinedSecondary",
+            "outlinedSizeLarge": "MuiButton-outlinedSizeLarge",
+            "outlinedSizeSmall": "MuiButton-outlinedSizeSmall",
+            "root": "MuiButton-root",
+            "sizeLarge": "MuiButton-sizeLarge",
+            "sizeSmall": "MuiButton-sizeSmall",
+            "startIcon": "MuiButton-startIcon",
+            "text": "MuiButton-text",
+            "textPrimary": "MuiButton-textPrimary",
+            "textSecondary": "MuiButton-textSecondary",
+            "textSizeLarge": "MuiButton-textSizeLarge",
+            "textSizeSmall": "MuiButton-textSizeSmall",
+          }
+        }
+      >
+        <WithStyles(ForwardRef(ButtonBase))
+          className="MuiButton-root MuiButton-text"
+          component="button"
+          disabled={false}
+          focusRipple={true}
+          focusVisibleClassName="Mui-focusVisible"
+          type="button"
+        >
+          <ForwardRef(ButtonBase)
+            className="MuiButton-root MuiButton-text"
+            classes={
+              Object {
+                "disabled": "Mui-disabled",
+                "focusVisible": "Mui-focusVisible",
+                "root": "MuiButtonBase-root",
+              }
+            }
+            component="button"
+            disabled={false}
+            focusRipple={true}
+            focusVisibleClassName="Mui-focusVisible"
+            type="button"
+          >
+            <button
+              className="MuiButtonBase-root MuiButton-root MuiButton-text"
+              disabled={false}
+              onBlur={[Function]}
+              onDragLeave={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+              onMouseDown={[Function]}
+              onMouseLeave={[Function]}
+              onMouseUp={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              tabIndex={0}
+              type="button"
+            >
+              <span
+                className="MuiButton-label"
+              >
+                Note
+              </span>
+              <NoSsr>
+                <WithStyles(undefined)
+                  center={false}
+                >
+                  <ForwardRef(TouchRipple)
+                    center={false}
+                    classes={
+                      Object {
+                        "child": "MuiTouchRipple-child",
+                        "childLeaving": "MuiTouchRipple-childLeaving",
+                        "childPulsate": "MuiTouchRipple-childPulsate",
+                        "ripple": "MuiTouchRipple-ripple",
+                        "ripplePulsate": "MuiTouchRipple-ripplePulsate",
+                        "rippleVisible": "MuiTouchRipple-rippleVisible",
+                        "root": "MuiTouchRipple-root",
+                      }
+                    }
+                  >
+                    <span
+                      className="MuiTouchRipple-root"
+                    >
+                      <TransitionGroup
+                        childFactory={[Function]}
+                        component={null}
+                        exit={true}
+                      />
+                    </span>
+                  </ForwardRef(TouchRipple)>
+                </WithStyles(undefined)>
+              </NoSsr>
+            </button>
+          </ForwardRef(ButtonBase)>
+        </WithStyles(ForwardRef(ButtonBase))>
+      </ForwardRef(Button)>
+    </WithStyles(ForwardRef(Button))>
+    <WithStyles(ForwardRef(Divider))>
+      <ForwardRef(Divider)
+        classes={
+          Object {
+            "absolute": "MuiDivider-absolute",
+            "flexItem": "MuiDivider-flexItem",
+            "inset": "MuiDivider-inset",
+            "light": "MuiDivider-light",
+            "middle": "MuiDivider-middle",
+            "root": "MuiDivider-root",
+            "vertical": "MuiDivider-vertical",
+          }
+        }
+      >
+        <hr
+          className="MuiDivider-root"
+        />
+      </ForwardRef(Divider)>
+    </WithStyles(ForwardRef(Divider))>
+    <WithStyles(ForwardRef(TextField))
+      InputProps={
+        Object {
+          "endAdornment": <ForwardRef(WithStyles)
+            className="reply"
+            color="primary"
+            style={
+              Object {
+                "borderRadius": "10%",
+              }
+            }
+            variant="contained"
+          >
+            Reply
+          </ForwardRef(WithStyles)>,
+        }
+      }
+      fullWidth={true}
+      id="outlined-full-width"
+      multiline={true}
+      name="reply"
+      rows="4"
+      style={
+        Object {
+          "backgroundColor": "white",
+          "marginTop": "10px",
+        }
+      }
+      variant="outlined"
+    >
+      <ForwardRef(TextField)
+        InputProps={
+          Object {
+            "endAdornment": <ForwardRef(WithStyles)
+              className="reply"
+              color="primary"
+              style={
+                Object {
+                  "borderRadius": "10%",
+                }
+              }
+              variant="contained"
+            >
+              Reply
+            </ForwardRef(WithStyles)>,
+          }
+        }
+        classes={
+          Object {
+            "root": "MuiTextField-root",
+          }
+        }
+        fullWidth={true}
+        id="outlined-full-width"
+        multiline={true}
+        name="reply"
+        rows="4"
+        style={
+          Object {
+            "backgroundColor": "white",
+            "marginTop": "10px",
+          }
+        }
+        variant="outlined"
+      >
+        <WithStyles(ForwardRef(FormControl))
+          className="MuiTextField-root"
+          color="primary"
+          disabled={false}
+          error={false}
+          fullWidth={true}
+          required={false}
+          style={
+            Object {
+              "backgroundColor": "white",
+              "marginTop": "10px",
+            }
+          }
+          variant="outlined"
+        >
+          <ForwardRef(FormControl)
+            className="MuiTextField-root"
+            classes={
+              Object {
+                "fullWidth": "MuiFormControl-fullWidth",
+                "marginDense": "MuiFormControl-marginDense",
+                "marginNormal": "MuiFormControl-marginNormal",
+                "root": "MuiFormControl-root",
+              }
+            }
+            color="primary"
+            disabled={false}
+            error={false}
+            fullWidth={true}
+            required={false}
+            style={
+              Object {
+                "backgroundColor": "white",
+                "marginTop": "10px",
+              }
+            }
+            variant="outlined"
+          >
+            <div
+              className="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
+              style={
+                Object {
+                  "backgroundColor": "white",
+                  "marginTop": "10px",
+                }
+              }
+            >
+              <WithStyles(ForwardRef(OutlinedInput))
+                autoFocus={false}
+                endAdornment={
+                  <ForwardRef(WithStyles)
+                    className="reply"
+                    color="primary"
+                    style={
+                      Object {
+                        "borderRadius": "10%",
+                      }
+                    }
+                    variant="contained"
+                  >
+                    Reply
+                  </ForwardRef(WithStyles)>
+                }
+                fullWidth={true}
+                id="outlined-full-width"
+                multiline={true}
+                name="reply"
+                rows="4"
+              >
+                <ForwardRef(OutlinedInput)
+                  autoFocus={false}
+                  classes={
+                    Object {
+                      "adornedEnd": "MuiOutlinedInput-adornedEnd",
+                      "adornedStart": "MuiOutlinedInput-adornedStart",
+                      "colorSecondary": "MuiOutlinedInput-colorSecondary",
+                      "disabled": "Mui-disabled",
+                      "error": "Mui-error",
+                      "focused": "Mui-focused",
+                      "input": "MuiOutlinedInput-input",
+                      "inputAdornedEnd": "MuiOutlinedInput-inputAdornedEnd",
+                      "inputAdornedStart": "MuiOutlinedInput-inputAdornedStart",
+                      "inputMarginDense": "MuiOutlinedInput-inputMarginDense",
+                      "inputMultiline": "MuiOutlinedInput-inputMultiline",
+                      "marginDense": "MuiOutlinedInput-marginDense",
+                      "multiline": "MuiOutlinedInput-multiline",
+                      "notchedOutline": "MuiOutlinedInput-notchedOutline",
+                      "root": "MuiOutlinedInput-root",
+                    }
+                  }
+                  endAdornment={
+                    <ForwardRef(WithStyles)
+                      className="reply"
+                      color="primary"
+                      style={
+                        Object {
+                          "borderRadius": "10%",
+                        }
+                      }
+                      variant="contained"
+                    >
+                      Reply
+                    </ForwardRef(WithStyles)>
+                  }
+                  fullWidth={true}
+                  id="outlined-full-width"
+                  multiline={true}
+                  name="reply"
+                  rows="4"
+                >
+                  <WithStyles(ForwardRef(InputBase))
+                    autoFocus={false}
+                    classes={
+                      Object {
+                        "adornedEnd": "MuiOutlinedInput-adornedEnd",
+                        "adornedStart": "MuiOutlinedInput-adornedStart",
+                        "colorSecondary": "MuiOutlinedInput-colorSecondary",
+                        "disabled": "Mui-disabled",
+                        "error": "Mui-error",
+                        "focused": "Mui-focused",
+                        "input": "MuiOutlinedInput-input",
+                        "inputAdornedEnd": "MuiOutlinedInput-inputAdornedEnd",
+                        "inputAdornedStart": "MuiOutlinedInput-inputAdornedStart",
+                        "inputMarginDense": "MuiOutlinedInput-inputMarginDense",
+                        "inputMultiline": "MuiOutlinedInput-inputMultiline",
+                        "marginDense": "MuiOutlinedInput-marginDense",
+                        "multiline": "MuiOutlinedInput-multiline",
+                        "notchedOutline": null,
+                        "root": "MuiOutlinedInput-root",
+                      }
+                    }
+                    endAdornment={
+                      <ForwardRef(WithStyles)
+                        className="reply"
+                        color="primary"
+                        style={
+                          Object {
+                            "borderRadius": "10%",
+                          }
+                        }
+                        variant="contained"
+                      >
+                        Reply
+                      </ForwardRef(WithStyles)>
+                    }
+                    fullWidth={true}
+                    id="outlined-full-width"
+                    inputComponent="input"
+                    multiline={true}
+                    name="reply"
+                    renderSuffix={[Function]}
+                    rows="4"
+                    type="text"
+                  >
+                    <ForwardRef(InputBase)
+                      autoFocus={false}
+                      classes={
+                        Object {
+                          "adornedEnd": "MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd",
+                          "adornedStart": "MuiInputBase-adornedStart MuiOutlinedInput-adornedStart",
+                          "colorSecondary": "MuiInputBase-colorSecondary MuiOutlinedInput-colorSecondary",
+                          "disabled": "Mui-disabled Mui-disabled",
+                          "error": "Mui-error Mui-error",
+                          "focused": "Mui-focused Mui-focused",
+                          "formControl": "MuiInputBase-formControl",
+                          "fullWidth": "MuiInputBase-fullWidth",
+                          "input": "MuiInputBase-input MuiOutlinedInput-input",
+                          "inputAdornedEnd": "MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd",
+                          "inputAdornedStart": "MuiInputBase-inputAdornedStart MuiOutlinedInput-inputAdornedStart",
+                          "inputHiddenLabel": "MuiInputBase-inputHiddenLabel",
+                          "inputMarginDense": "MuiInputBase-inputMarginDense MuiOutlinedInput-inputMarginDense",
+                          "inputMultiline": "MuiInputBase-inputMultiline MuiOutlinedInput-inputMultiline",
+                          "inputTypeSearch": "MuiInputBase-inputTypeSearch",
+                          "marginDense": "MuiInputBase-marginDense MuiOutlinedInput-marginDense",
+                          "multiline": "MuiInputBase-multiline MuiOutlinedInput-multiline",
+                          "root": "MuiInputBase-root MuiOutlinedInput-root",
+                        }
+                      }
+                      endAdornment={
+                        <ForwardRef(WithStyles)
+                          className="reply"
+                          color="primary"
+                          style={
+                            Object {
+                              "borderRadius": "10%",
+                            }
+                          }
+                          variant="contained"
+                        >
+                          Reply
+                        </ForwardRef(WithStyles)>
+                      }
+                      fullWidth={true}
+                      id="outlined-full-width"
+                      inputComponent="input"
+                      multiline={true}
+                      name="reply"
+                      renderSuffix={[Function]}
+                      rows="4"
+                      type="text"
+                    >
+                      <div
+                        className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-multiline MuiOutlinedInput-multiline MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
+                        onClick={[Function]}
+                      >
+                        <textarea
+                          aria-invalid={false}
+                          autoFocus={false}
+                          className="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiOutlinedInput-inputMultiline MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                          disabled={false}
+                          id="outlined-full-width"
+                          name="reply"
+                          onAnimationStart={[Function]}
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onFocus={[Function]}
+                          required={false}
+                          rows="4"
+                        />
+                        <WithStyles(ForwardRef(Button))
+                          className="reply"
+                          color="primary"
+                          style={
+                            Object {
+                              "borderRadius": "10%",
+                            }
+                          }
+                          variant="contained"
+                        >
+                          <ForwardRef(Button)
+                            className="reply"
+                            classes={
+                              Object {
+                                "colorInherit": "MuiButton-colorInherit",
+                                "contained": "MuiButton-contained",
+                                "containedPrimary": "MuiButton-containedPrimary",
+                                "containedSecondary": "MuiButton-containedSecondary",
+                                "containedSizeLarge": "MuiButton-containedSizeLarge",
+                                "containedSizeSmall": "MuiButton-containedSizeSmall",
+                                "disableElevation": "MuiButton-disableElevation",
+                                "disabled": "Mui-disabled",
+                                "endIcon": "MuiButton-endIcon",
+                                "focusVisible": "Mui-focusVisible",
+                                "fullWidth": "MuiButton-fullWidth",
+                                "iconSizeLarge": "MuiButton-iconSizeLarge",
+                                "iconSizeMedium": "MuiButton-iconSizeMedium",
+                                "iconSizeSmall": "MuiButton-iconSizeSmall",
+                                "label": "MuiButton-label",
+                                "outlined": "MuiButton-outlined",
+                                "outlinedPrimary": "MuiButton-outlinedPrimary",
+                                "outlinedSecondary": "MuiButton-outlinedSecondary",
+                                "outlinedSizeLarge": "MuiButton-outlinedSizeLarge",
+                                "outlinedSizeSmall": "MuiButton-outlinedSizeSmall",
+                                "root": "MuiButton-root",
+                                "sizeLarge": "MuiButton-sizeLarge",
+                                "sizeSmall": "MuiButton-sizeSmall",
+                                "startIcon": "MuiButton-startIcon",
+                                "text": "MuiButton-text",
+                                "textPrimary": "MuiButton-textPrimary",
+                                "textSecondary": "MuiButton-textSecondary",
+                                "textSizeLarge": "MuiButton-textSizeLarge",
+                                "textSizeSmall": "MuiButton-textSizeSmall",
+                              }
+                            }
+                            color="primary"
+                            style={
+                              Object {
+                                "borderRadius": "10%",
+                              }
+                            }
+                            variant="contained"
+                          >
+                            <WithStyles(ForwardRef(ButtonBase))
+                              className="MuiButton-root MuiButton-contained reply MuiButton-containedPrimary"
+                              component="button"
+                              disabled={false}
+                              focusRipple={true}
+                              focusVisibleClassName="Mui-focusVisible"
+                              style={
+                                Object {
+                                  "borderRadius": "10%",
+                                }
+                              }
+                              type="button"
+                            >
+                              <ForwardRef(ButtonBase)
+                                className="MuiButton-root MuiButton-contained reply MuiButton-containedPrimary"
+                                classes={
+                                  Object {
+                                    "disabled": "Mui-disabled",
+                                    "focusVisible": "Mui-focusVisible",
+                                    "root": "MuiButtonBase-root",
+                                  }
+                                }
+                                component="button"
+                                disabled={false}
+                                focusRipple={true}
+                                focusVisibleClassName="Mui-focusVisible"
+                                style={
+                                  Object {
+                                    "borderRadius": "10%",
+                                  }
+                                }
+                                type="button"
+                              >
+                                <button
+                                  className="MuiButtonBase-root MuiButton-root MuiButton-contained reply MuiButton-containedPrimary"
+                                  disabled={false}
+                                  onBlur={[Function]}
+                                  onDragLeave={[Function]}
+                                  onFocus={[Function]}
+                                  onKeyDown={[Function]}
+                                  onKeyUp={[Function]}
+                                  onMouseDown={[Function]}
+                                  onMouseLeave={[Function]}
+                                  onMouseUp={[Function]}
+                                  onTouchEnd={[Function]}
+                                  onTouchMove={[Function]}
+                                  onTouchStart={[Function]}
+                                  style={
+                                    Object {
+                                      "borderRadius": "10%",
+                                    }
+                                  }
+                                  tabIndex={0}
+                                  type="button"
+                                >
+                                  <span
+                                    className="MuiButton-label"
+                                  >
+                                    Reply
+                                  </span>
+                                  <NoSsr>
+                                    <WithStyles(undefined)
+                                      center={false}
+                                    >
+                                      <ForwardRef(TouchRipple)
+                                        center={false}
+                                        classes={
+                                          Object {
+                                            "child": "MuiTouchRipple-child",
+                                            "childLeaving": "MuiTouchRipple-childLeaving",
+                                            "childPulsate": "MuiTouchRipple-childPulsate",
+                                            "ripple": "MuiTouchRipple-ripple",
+                                            "ripplePulsate": "MuiTouchRipple-ripplePulsate",
+                                            "rippleVisible": "MuiTouchRipple-rippleVisible",
+                                            "root": "MuiTouchRipple-root",
+                                          }
+                                        }
+                                      >
+                                        <span
+                                          className="MuiTouchRipple-root"
+                                        >
+                                          <TransitionGroup
+                                            childFactory={[Function]}
+                                            component={null}
+                                            exit={true}
+                                          />
+                                        </span>
+                                      </ForwardRef(TouchRipple)>
+                                    </WithStyles(undefined)>
+                                  </NoSsr>
+                                </button>
+                              </ForwardRef(ButtonBase)>
+                            </WithStyles(ForwardRef(ButtonBase))>
+                          </ForwardRef(Button)>
+                        </WithStyles(ForwardRef(Button))>
+                        <WithStyles(ForwardRef(NotchedOutline))
+                          className="MuiOutlinedInput-notchedOutline"
+                          labelWidth={0}
+                          notched={false}
+                        >
+                          <ForwardRef(NotchedOutline)
+                            className="MuiOutlinedInput-notchedOutline"
+                            classes={
+                              Object {
+                                "legend": "PrivateNotchedOutline-legend-79",
+                                "legendLabelled": "PrivateNotchedOutline-legendLabelled-80",
+                                "legendNotched": "PrivateNotchedOutline-legendNotched-81",
+                                "root": "PrivateNotchedOutline-root-78",
+                              }
+                            }
+                            labelWidth={0}
+                            notched={false}
+                          >
+                            <fieldset
+                              aria-hidden={true}
+                              className="PrivateNotchedOutline-root-78 MuiOutlinedInput-notchedOutline"
+                              style={
+                                Object {
+                                  "paddingLeft": 8,
+                                }
+                              }
+                            >
+                              <legend
+                                className="PrivateNotchedOutline-legend-79"
+                                style={
+                                  Object {
+                                    "width": 0.01,
+                                  }
+                                }
+                              >
+                                <span
+                                  dangerouslySetInnerHTML={
+                                    Object {
+                                      "__html": "&#8203;",
+                                    }
+                                  }
+                                />
+                              </legend>
+                            </fieldset>
+                          </ForwardRef(NotchedOutline)>
+                        </WithStyles(ForwardRef(NotchedOutline))>
+                      </div>
+                    </ForwardRef(InputBase)>
+                  </WithStyles(ForwardRef(InputBase))>
+                </ForwardRef(OutlinedInput)>
+              </WithStyles(ForwardRef(OutlinedInput))>
+            </div>
+          </ForwardRef(FormControl)>
+        </WithStyles(ForwardRef(FormControl))>
+      </ForwardRef(TextField)>
+    </WithStyles(ForwardRef(TextField))>
+  </div>
+</ReplyBox>
+`;

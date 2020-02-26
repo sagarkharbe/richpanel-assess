@@ -1,6 +1,6 @@
 import React from "react";
 import { List, Paper } from "@material-ui/core";
-import { ChatPlaceholder } from "./PlaceHolders";
+import { ChatPlaceholder } from "../PlaceHolders/PlaceHolders";
 import ChatItem from "./ChatItem";
 
 export default function ChatList(props) {

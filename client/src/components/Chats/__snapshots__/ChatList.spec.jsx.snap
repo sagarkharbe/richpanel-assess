@@ -1,0 +1,435 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Chat list component renders correctly 1`] = `
+<ChatList
+  isLoading={false}
+  replies={
+    Object {
+      "3": Array [
+        Object {
+          "user": Object {
+            "created_at": "00:00:00",
+            "name": "test",
+            "profile_image_url": "string",
+            "text": "some text",
+          },
+        },
+      ],
+    }
+  }
+  selectedTweet={
+    Object {
+      "id": 3,
+      "user": Object {
+        "created_at": "00:00:00",
+        "name": "test",
+        "profile_image_url": "string",
+        "text": "some text",
+      },
+    }
+  }
+>
+  <WithStyles(ForwardRef(Paper))
+    style={
+      Object {
+        "height": "70vh",
+        "overflow": "scroll",
+      }
+    }
+  >
+    <ForwardRef(Paper)
+      classes={
+        Object {
+          "elevation0": "MuiPaper-elevation0",
+          "elevation1": "MuiPaper-elevation1",
+          "elevation10": "MuiPaper-elevation10",
+          "elevation11": "MuiPaper-elevation11",
+          "elevation12": "MuiPaper-elevation12",
+          "elevation13": "MuiPaper-elevation13",
+          "elevation14": "MuiPaper-elevation14",
+          "elevation15": "MuiPaper-elevation15",
+          "elevation16": "MuiPaper-elevation16",
+          "elevation17": "MuiPaper-elevation17",
+          "elevation18": "MuiPaper-elevation18",
+          "elevation19": "MuiPaper-elevation19",
+          "elevation2": "MuiPaper-elevation2",
+          "elevation20": "MuiPaper-elevation20",
+          "elevation21": "MuiPaper-elevation21",
+          "elevation22": "MuiPaper-elevation22",
+          "elevation23": "MuiPaper-elevation23",
+          "elevation24": "MuiPaper-elevation24",
+          "elevation3": "MuiPaper-elevation3",
+          "elevation4": "MuiPaper-elevation4",
+          "elevation5": "MuiPaper-elevation5",
+          "elevation6": "MuiPaper-elevation6",
+          "elevation7": "MuiPaper-elevation7",
+          "elevation8": "MuiPaper-elevation8",
+          "elevation9": "MuiPaper-elevation9",
+          "outlined": "MuiPaper-outlined",
+          "root": "MuiPaper-root",
+          "rounded": "MuiPaper-rounded",
+        }
+      }
+      style={
+        Object {
+          "height": "70vh",
+          "overflow": "scroll",
+        }
+      }
+    >
+      <div
+        className="MuiPaper-root MuiPaper-elevation1 MuiPaper-rounded"
+        style={
+          Object {
+            "height": "70vh",
+            "overflow": "scroll",
+          }
+        }
+      >
+        <WithStyles(ForwardRef(List))
+          style={
+            Object {
+              "display": "flex",
+              "flex": 1,
+              "flexDirection": "column",
+            }
+          }
+        >
+          <ForwardRef(List)
+            classes={
+              Object {
+                "dense": "MuiList-dense",
+                "padding": "MuiList-padding",
+                "root": "MuiList-root",
+                "subheader": "MuiList-subheader",
+              }
+            }
+            style={
+              Object {
+                "display": "flex",
+                "flex": 1,
+                "flexDirection": "column",
+              }
+            }
+          >
+            <ul
+              className="MuiList-root MuiList-padding"
+              style={
+                Object {
+                  "display": "flex",
+                  "flex": 1,
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <ChatItem
+                item={
+                  Object {
+                    "id": 3,
+                    "user": Object {
+                      "created_at": "00:00:00",
+                      "name": "test",
+                      "profile_image_url": "string",
+                      "text": "some text",
+                    },
+                  }
+                }
+                style={
+                  Object {
+                    "backgroundColor": "#FBFBFB",
+                    "marginLeft": "1%",
+                  }
+                }
+              >
+                <div
+                  style={
+                    Object {
+                      "display": "flex",
+                      "flexDirection": "row",
+                      "marginLeft": "1%",
+                    }
+                  }
+                >
+                  <WithStyles(ForwardRef(Avatar))
+                    alt="test"
+                    src="string"
+                  >
+                    <ForwardRef(Avatar)
+                      alt="test"
+                      classes={
+                        Object {
+                          "circle": "MuiAvatar-circle",
+                          "colorDefault": "MuiAvatar-colorDefault",
+                          "fallback": "MuiAvatar-fallback",
+                          "img": "MuiAvatar-img",
+                          "root": "MuiAvatar-root",
+                          "rounded": "MuiAvatar-rounded",
+                          "square": "MuiAvatar-square",
+                        }
+                      }
+                      src="string"
+                    >
+                      <div
+                        className="MuiAvatar-root MuiAvatar-circle"
+                      >
+                        <img
+                          alt="test"
+                          className="MuiAvatar-img"
+                          src="string"
+                        />
+                      </div>
+                    </ForwardRef(Avatar)>
+                  </WithStyles(ForwardRef(Avatar))>
+                  <WithStyles(ForwardRef(ListItem))
+                    style={
+                      Object {
+                        "backgroundColor": "#FBFBFB",
+                        "borderColor": "#d3d3d3",
+                        "borderRadius": 20,
+                        "borderStyle": "solid",
+                        "borderWidth": "1px",
+                        "marginBottom": "2%",
+                        "marginLeft": "1%",
+                        "width": "75%",
+                      }
+                    }
+                  >
+                    <ForwardRef(ListItem)
+                      classes={
+                        Object {
+                          "alignItemsFlexStart": "MuiListItem-alignItemsFlexStart",
+                          "button": "MuiListItem-button",
+                          "container": "MuiListItem-container",
+                          "dense": "MuiListItem-dense",
+                          "disabled": "Mui-disabled",
+                          "divider": "MuiListItem-divider",
+                          "focusVisible": "Mui-focusVisible",
+                          "gutters": "MuiListItem-gutters",
+                          "root": "MuiListItem-root",
+                          "secondaryAction": "MuiListItem-secondaryAction",
+                          "selected": "Mui-selected",
+                        }
+                      }
+                      style={
+                        Object {
+                          "backgroundColor": "#FBFBFB",
+                          "borderColor": "#d3d3d3",
+                          "borderRadius": 20,
+                          "borderStyle": "solid",
+                          "borderWidth": "1px",
+                          "marginBottom": "2%",
+                          "marginLeft": "1%",
+                          "width": "75%",
+                        }
+                      }
+                    >
+                      <li
+                        className="MuiListItem-root MuiListItem-gutters"
+                        disabled={false}
+                        style={
+                          Object {
+                            "backgroundColor": "#FBFBFB",
+                            "borderColor": "#d3d3d3",
+                            "borderRadius": 20,
+                            "borderStyle": "solid",
+                            "borderWidth": "1px",
+                            "marginBottom": "2%",
+                            "marginLeft": "1%",
+                            "width": "75%",
+                          }
+                        }
+                      >
+                        <span
+                          key=".0"
+                        >
+                          <b
+                            className="user-name"
+                          >
+                            test
+                          </b>
+                           
+                          <br />
+                          <p
+                            className="user-tweet"
+                            style={
+                              Object {
+                                "fontSize": "1em",
+                                "marginRight": "5px",
+                              }
+                            }
+                          />
+                          <p
+                            className="created-at"
+                            style={
+                              Object {
+                                "fontSize": "0.8em",
+                              }
+                            }
+                          >
+                            a few seconds ago
+                          </p>
+                        </span>
+                      </li>
+                    </ForwardRef(ListItem)>
+                  </WithStyles(ForwardRef(ListItem))>
+                </div>
+              </ChatItem>
+              <ChatItem
+                item={
+                  Object {
+                    "user": Object {
+                      "created_at": "00:00:00",
+                      "name": "test",
+                      "profile_image_url": "string",
+                      "text": "some text",
+                    },
+                  }
+                }
+                style={
+                  Object {
+                    "backgroundColor": "#d8edb8",
+                    "marginLeft": "35%",
+                  }
+                }
+              >
+                <div
+                  style={
+                    Object {
+                      "display": "flex",
+                      "flexDirection": "row",
+                      "marginLeft": "35%",
+                    }
+                  }
+                >
+                  <WithStyles(ForwardRef(Avatar))
+                    alt="test"
+                    src="string"
+                  >
+                    <ForwardRef(Avatar)
+                      alt="test"
+                      classes={
+                        Object {
+                          "circle": "MuiAvatar-circle",
+                          "colorDefault": "MuiAvatar-colorDefault",
+                          "fallback": "MuiAvatar-fallback",
+                          "img": "MuiAvatar-img",
+                          "root": "MuiAvatar-root",
+                          "rounded": "MuiAvatar-rounded",
+                          "square": "MuiAvatar-square",
+                        }
+                      }
+                      src="string"
+                    >
+                      <div
+                        className="MuiAvatar-root MuiAvatar-circle"
+                      >
+                        <img
+                          alt="test"
+                          className="MuiAvatar-img"
+                          src="string"
+                        />
+                      </div>
+                    </ForwardRef(Avatar)>
+                  </WithStyles(ForwardRef(Avatar))>
+                  <WithStyles(ForwardRef(ListItem))
+                    style={
+                      Object {
+                        "backgroundColor": "#d8edb8",
+                        "borderColor": "#d3d3d3",
+                        "borderRadius": 20,
+                        "borderStyle": "solid",
+                        "borderWidth": "1px",
+                        "marginBottom": "2%",
+                        "marginLeft": "1%",
+                        "width": "75%",
+                      }
+                    }
+                  >
+                    <ForwardRef(ListItem)
+                      classes={
+                        Object {
+                          "alignItemsFlexStart": "MuiListItem-alignItemsFlexStart",
+                          "button": "MuiListItem-button",
+                          "container": "MuiListItem-container",
+                          "dense": "MuiListItem-dense",
+                          "disabled": "Mui-disabled",
+                          "divider": "MuiListItem-divider",
+                          "focusVisible": "Mui-focusVisible",
+                          "gutters": "MuiListItem-gutters",
+                          "root": "MuiListItem-root",
+                          "secondaryAction": "MuiListItem-secondaryAction",
+                          "selected": "Mui-selected",
+                        }
+                      }
+                      style={
+                        Object {
+                          "backgroundColor": "#d8edb8",
+                          "borderColor": "#d3d3d3",
+                          "borderRadius": 20,
+                          "borderStyle": "solid",
+                          "borderWidth": "1px",
+                          "marginBottom": "2%",
+                          "marginLeft": "1%",
+                          "width": "75%",
+                        }
+                      }
+                    >
+                      <li
+                        className="MuiListItem-root MuiListItem-gutters"
+                        disabled={false}
+                        style={
+                          Object {
+                            "backgroundColor": "#d8edb8",
+                            "borderColor": "#d3d3d3",
+                            "borderRadius": 20,
+                            "borderStyle": "solid",
+                            "borderWidth": "1px",
+                            "marginBottom": "2%",
+                            "marginLeft": "1%",
+                            "width": "75%",
+                          }
+                        }
+                      >
+                        <span
+                          key=".0"
+                        >
+                          <b
+                            className="user-name"
+                          >
+                            test
+                          </b>
+                           
+                          <br />
+                          <p
+                            className="user-tweet"
+                            style={
+                              Object {
+                                "fontSize": "1em",
+                                "marginRight": "5px",
+                              }
+                            }
+                          />
+                          <p
+                            className="created-at"
+                            style={
+                              Object {
+                                "fontSize": "0.8em",
+                              }
+                            }
+                          >
+                            a few seconds ago
+                          </p>
+                        </span>
+                      </li>
+                    </ForwardRef(ListItem)>
+                  </WithStyles(ForwardRef(ListItem))>
+                </div>
+              </ChatItem>
+            </ul>
+          </ForwardRef(List)>
+        </WithStyles(ForwardRef(List))>
+      </div>
+    </ForwardRef(Paper)>
+  </WithStyles(ForwardRef(Paper))>
+</ChatList>
+`;
