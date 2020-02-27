@@ -58,7 +58,7 @@ class DashBoard extends Component {
 
   initSockets = async () => {
     const { user } = this.state;
-    const socket = socketIOClient("http://localhost");
+    const socket = socketIOClient(apiUrl);
     socket.on("connect", async () => {
       console.log("Socket Connected!");
       const k = await api.post(`${apiUrl}/setSearchTerm`, {
