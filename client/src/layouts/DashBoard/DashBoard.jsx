@@ -45,6 +45,7 @@ class DashBoard extends Component {
       ? appStore.user
       : await api.get(`${apiUrl}/api/twitter/self`);
     const tweets = await this.getTweets();
+    console.log(typeof tweets);
     this.setState(
       {
         isLoading: false,
@@ -56,7 +57,7 @@ class DashBoard extends Component {
   };
 
   initSockets = async () => {
-    const { user, tweets } = this.state;
+    const { user } = this.state;
     const k = await api.post(`${apiUrl}/setSearchTerm`, {
       term: user.screen_name
     });
@@ -64,8 +65,8 @@ class DashBoard extends Component {
     socket.on("connect", () => {
       console.log("Socket Connected!");
       socket.on("tweets", tweet => {
-        if (!tweets.some(o => o.id === tweet.id))
-          this.setState({ tweets: [tweet, ...tweets] });
+        if (!this.state.tweets.some(o => o.id_str === tweet.id_str))
+          this.setState({ tweets: [tweet].concat(this.state.tweets) });
       });
     });
     socket.on("disconnect", () => {

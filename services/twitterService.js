@@ -28,6 +28,13 @@ module.exports = (io, app) => {
     });
   };
 
+  app.use("/setSearchTerm", (req, res) => {
+    let term = req.body.term;
+    app.locals.searchTerm = term;
+    twitterStream.destroy();
+    stream();
+  });
+
   io.on("connection", socket => {
     socketConnection = socket;
     stream();
