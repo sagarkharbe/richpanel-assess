@@ -32,7 +32,7 @@ module.exports = (io, app) => {
     let term = req.body.term;
     app.locals.searchTerm = term;
     //twitterStream.destroy();
-    //stream();
+    stream();
     res.status(200).send();
   });
 
