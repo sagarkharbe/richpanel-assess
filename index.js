@@ -32,7 +32,7 @@ const app = express();
  */
 
 // set up cors to allow us to accept requests from our client
-//app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
 //passport authentication strategy for twitter
 // initalize passport
@@ -51,8 +51,11 @@ app.use(bodyParser.json());
 //Redirect to api routes
 
 app.use("/api", require("./routes"));
+const server = http.createServer(app);
+const io = SocketIO(server);
 
-// TODO: add socket.io connection later
+require("./services/twitterService")(io, app);
+
 // setUserActivityWebhook(app);
 
 // Redirect to client/build to serve html for any router other than /api
@@ -62,11 +65,6 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
 }
-
-const server = http.createServer(app);
-const io = SocketIO(server);
-
-require("./services/twitterService")(io, app);
 
 const port = process.env.PORT || 5000;
 

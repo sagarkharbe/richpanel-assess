@@ -31,15 +31,16 @@ module.exports = (io, app) => {
   app.use("/setSearchTerm", (req, res) => {
     let term = req.body.term;
     app.locals.searchTerm = term;
-    twitterStream.destroy();
-    stream();
+    //twitterStream.destroy();
+    //stream();
+    res.status(200).send();
   });
 
   io.on("connection", socket => {
     socketConnection = socket;
-    stream();
     socket.on("connection", () => console.log("Client connected"));
     socket.on("disconnect", () => console.log("Client disconnected"));
+    stream();
   });
 
   /**
