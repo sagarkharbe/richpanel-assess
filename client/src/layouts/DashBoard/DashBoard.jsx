@@ -56,7 +56,7 @@ class DashBoard extends Component {
   };
 
   initSockets = async () => {
-    const { user } = this.state;
+    const { user, tweets } = this.state;
     const k = await api.post(`${apiUrl}/setSearchTerm`, {
       term: user.screen_name
     });
@@ -64,7 +64,8 @@ class DashBoard extends Component {
     socket.on("connect", () => {
       console.log("Socket Connected!");
       socket.on("tweets", tweet => {
-        this.setState({ tweets: [tweet, ...this.state.tweets] });
+        if (!tweets.some(o => o.id === tweet.id))
+          this.setState({ tweets: [tweet, ...tweets] });
       });
     });
     socket.on("disconnect", () => {
