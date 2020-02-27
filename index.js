@@ -32,7 +32,7 @@ const app = express();
  */
 
 // set up cors to allow us to accept requests from our client
-app.use(cors(corsOptions));
+//app.use(cors(corsOptions));
 
 //passport authentication strategy for twitter
 // initalize passport
@@ -49,11 +49,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 //Redirect to api routes
-app.use("/setSearchTerm", (req, res) => {
-  let term = req.body.term;
-  app.locals.searchTerm = term;
-  res.status(200).send();
-});
+
 app.use("/api", require("./routes"));
 
 // TODO: add socket.io connection later
