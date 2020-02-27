@@ -6,6 +6,7 @@ const passport = require("passport");
 const http = require("http");
 const chalk = require("chalk");
 const compression = require("compression");
+const session = require("express-session");
 const helmet = require("helmet");
 const cors = require("cors");
 const SocketIO = require("socket.io");
@@ -32,8 +33,16 @@ const app = express();
  */
 
 // set up cors to allow us to accept requests from our client
-//app.use(cors(corsOptions));
-
+// app.use(cors(corsOptions));
+// app.set("trust proxy", 1); // trust first proxy
+app.use(
+  session({
+    secret: "keyboard cat",
+    resave: false,
+    saveUninitialized: false,
+    cookie: { secure: process.env.NODE_ENV === "production" }
+  })
+);
 //passport authentication strategy for twitter
 // initalize passport
 app.use(passport.initialize());
