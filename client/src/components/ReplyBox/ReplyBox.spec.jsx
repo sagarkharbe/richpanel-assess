@@ -34,4 +34,16 @@ describe("Replybox component", () => {
     reply && reply();
     expect(props.postReplies).toBeCalledTimes(1);
   });
+  test("Reply button should disable while reply is posting", () => {
+    const props = {
+      replyButtonDisabled: true
+    };
+    const wrapper = mount(<ReplyBox {...props}></ReplyBox>);
+    expect(
+      wrapper
+        .find(".reply")
+        .first()
+        .props().disabled
+    ).toBeTruthy();
+  });
 });
