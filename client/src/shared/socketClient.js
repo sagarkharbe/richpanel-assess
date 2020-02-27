@@ -7,7 +7,7 @@ class SocketClient {
     this.services = services;
     this.endpoint = "http://127.0.0.1:5001";
     this.authenticate = this.authenticate.bind(this);
-    this.connection = io(`${apiUrl}`).connect();
+    this.connection = io(`http://localhost:5000`).connect();
     this.socketHandler = this.socketHandler.bind(this);
     this.socketHandler();
   }

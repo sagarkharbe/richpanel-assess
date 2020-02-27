@@ -8,13 +8,12 @@ module.exports = {
     global.io.on("connection", socket => {
       console.log(chalk.red("CONNECTION"));
       socket.on("authenticate", async data => {
-        console.log(chalk.red("AUTHEN"));
         const { user: userData } = jwt.decode(data.token, JWT_SECRET);
-        //try {
-        await twitterWebhook.userUnsubscribe(userData);
-        // } catch (err) {
-        //   console.log(chalk.red("ERROR", JSON.stringify(err.body.errors)));
-        // }
+        // try {
+        twitterWebhook.userUnsubscribe(userData);
+        //} catch (err) {
+        //console.log(chalk.red("ERROR", JSON.stringify(err.body.errors)));
+        //}
 
         const userActivityWebhook = await twitterWebhook.userActivityWebhook(
           userData

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import socketIOClient from "socket.io-client";
 import api from "../../shared/customAxios";
 import { apiUrl } from "../../shared/vars";
 import { Grid, Paper } from "@material-ui/core";
@@ -6,7 +7,6 @@ import { observer } from "mobx-react";
 import { appStore } from "../../store/appStore";
 import Header from "../../components/Header/Header";
 import { withRouter } from "react-router-dom";
-import SocketClient from "../../shared/socketClient";
 import ReplyBox from "../../components/ReplyBox/ReplyBox";
 import TweetList from "../../components/Tweets/TweetList";
 import ChatList from "../../components/Chats/ChatList";
@@ -45,16 +45,32 @@ class DashBoard extends Component {
       ? appStore.user
       : await api.get(`${apiUrl}/api/twitter/self`);
     const tweets = await this.getTweets();
-    this.setState({
-      isLoading: false,
-      user,
-      tweets
+    this.setState(
+      {
+        isLoading: false,
+        user,
+        tweets
+      },
+      () => this.initSockets()
+    );
+  };
+
+  initSockets = async () => {
+    const { user } = this.state;
+    const k = await api.post(`${apiUrl}/setSearchTerm`, {
+      term: user.screen_name
     });
-    SocketClient({
-      getTweets: async () => {
-        const tweets = await this.getTweets();
-        this.setState({ tweets }, () => console.log(this.state.tweets, tweets));
-      }
+    const socket = socketIOClient(apiUrl);
+    socket.on("connect", () => {
+      console.log("Socket Connected!");
+      socket.on("tweets", tweet => {
+        this.setState({ tweets: [tweet, ...this.state.tweets] });
+      });
+    });
+    socket.on("disconnect", () => {
+      socket.off("tweets");
+      socket.removeAllListeners("tweets");
+      console.log("Socket Disconnected!");
     });
   };
 
@@ -123,7 +139,6 @@ class DashBoard extends Component {
       isLoading,
       replyButtonDisabled
     } = this.state;
-    console.log(replies);
     return (
       <div
         style={{

@@ -8,7 +8,7 @@ const chalk = require("chalk");
 const compression = require("compression");
 const helmet = require("helmet");
 const cors = require("cors");
-const { SOCKET_PORT, SOCKET_URL } = require("./config/keys");
+const SocketIO = require("socket.io");
 const socketUtils = require("./config/socketUtils");
 const { setUserActivityWebhook } = require("./lib/twitterWebHooks");
 
@@ -49,10 +49,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 //Redirect to api routes
+app.use("/setSearchTerm", (req, res) => {
+  let term = req.body.term;
+  app.locals.searchTerm = term;
+  res.status(200).send();
+});
 app.use("/api", require("./routes"));
 
 // TODO: add socket.io connection later
-setUserActivityWebhook(app);
+// setUserActivityWebhook(app);
 
 // Redirect to client/build to serve html for any router other than /api
 if (process.env.NODE_ENV === "production") {
@@ -63,10 +68,9 @@ if (process.env.NODE_ENV === "production") {
 }
 
 const server = http.createServer(app);
+const io = SocketIO(server);
 
-global.io = require("socket.io").listen(server);
-
-socketUtils.newConnection();
+require("./services/twitterService")(io, app);
 
 const port = process.env.PORT || 5000;
 
