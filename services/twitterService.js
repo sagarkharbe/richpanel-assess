@@ -10,17 +10,22 @@ module.exports = (io, app) => {
     access_token_secret: keys.TWITTER_ACCESS_TOKEN_SECRET
   });
 
-  let socketConnection;
-  let twitterStream;
+  io.on("connection", socket => {
+    socket.on("register_screen_name", data => {
+      let searchTerm = data.term;
+      socket.join(searchTerm);
+      stream(searchTerm);
+    });
+  });
 
-  const stream = () => {
-    console.log("Streaming for-", `@${app.locals.searchTerm}`);
+  const stream = searchTerm => {
+    console.log("Streaming for-", `@${searchTerm}`);
     let stream = twitter.stream("statuses/filter", {
-      track: `@${app.locals.searchTerm}`
+      track: `@${searchTerm}`
     });
     stream.on("tweet", tweet => {
       console.log("New Tweet Recieved");
-      sendMessage(tweet);
+      sendMessage(tweet, searchTerm);
     });
 
     stream.on("error", error => {
@@ -28,29 +33,14 @@ module.exports = (io, app) => {
     });
   };
 
-  app.use("/setSearchTerm", (req, res) => {
-    let term = req.body.term;
-    app.locals.searchTerm = term;
-    //twitterStream.destroy();
-    stream();
-    res.status(200).send();
-  });
-
-  io.on("connection", socket => {
-    socketConnection = socket;
-    socket.on("connection", () => console.log("Client connected"));
-    socket.on("disconnect", () => console.log("Client disconnected"));
-    stream();
-  });
-
   /**
    * Emits data from stream.
    * @param {String} msg
    */
-  const sendMessage = msg => {
+  const sendMessage = (msg, searchTerm) => {
     if (msg.text.includes("RT")) {
       return;
     }
-    socketConnection.emit("tweets", msg);
+    io.to(searchTerm).emit("tweets", msg);
   };
 };

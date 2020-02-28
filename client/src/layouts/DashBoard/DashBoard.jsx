@@ -60,10 +60,8 @@ class DashBoard extends Component {
     const { user } = this.state;
     const socket = socketIOClient(apiUrl);
     socket.on("connect", async () => {
-      console.log("Socket Connected!");
-      const k = await api.post(`${apiUrl}/setSearchTerm`, {
-        term: user.screen_name
-      });
+      console.log("Socket Connected! , Emitting screen Name", user.screen_name);
+      socket.emit("register_screen_name", { term: user.screen_name });
       socket.on("tweets", tweet => {
         if (!this.state.tweets.some(o => o.id_str === tweet.id_str))
           this.setState({ tweets: [tweet].concat(this.state.tweets) });
