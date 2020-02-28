@@ -10,8 +10,6 @@ const session = require("express-session");
 const helmet = require("helmet");
 const cors = require("cors");
 const SocketIO = require("socket.io");
-const socketUtils = require("./config/socketUtils");
-const { setUserActivityWebhook } = require("./lib/twitterWebHooks");
 
 var whitelist = ["http://localhost:3000", "https://twitter-rp.herokuapp.com"];
 var corsOptions = {
