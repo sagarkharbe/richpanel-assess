@@ -24,13 +24,18 @@ class AppStore {
     this.isLoggedIn = boolean;
     this.jwt = jwt;
   }
+
+  updateUser(user) {
+    this.user = user;
+  }
 }
 
 decorate(AppStore, {
   isLoggedIn: observable,
   jwt: observable,
   jwtToken: computed,
-  changeLoginState: action
+  changeLoginState: action,
+  updateUser: action
 });
 
 export const appStore = new AppStore();

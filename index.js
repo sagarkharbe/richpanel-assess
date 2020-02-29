@@ -31,7 +31,7 @@ const app = express();
  */
 
 // set up cors to allow us to accept requests from our client
-app.use(cors(corsOptions));
+//app.use(cors(corsOptions));
 // app.set("trust proxy", 1); // trust first proxy
 app.use(
   session({

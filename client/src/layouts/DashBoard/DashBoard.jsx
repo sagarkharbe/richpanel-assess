@@ -45,25 +45,27 @@ class DashBoard extends Component {
     const user = appStore.user
       ? appStore.user
       : await api.get(`${apiUrl}/api/twitter/self`);
+    appStore.updateUser(user);
     const allTweets = await this.getTweets();
     const [pass, fail] = allTweets.reduce(
       ([p, f], e) =>
         e.in_reply_to_status_id === null ? [[...p, e], f] : [p, [...f, e]],
       [[], []]
     );
-    const userReplies = await this.getUserReplies();
     let replies = {};
-    for (let reply of userReplies.reverse()) {
-      if (!replies[reply.in_reply_to_status_id]) {
-        replies[reply.in_reply_to_status_id] = [];
-      }
-      replies[reply.in_reply_to_status_id].push(reply);
-    }
+    pass.forEach(e => (replies[e.id] = []));
+
+    const userReplies = await this.getUserReplies();
+
+    replies = await this.createTweetsThread(fail, userReplies, replies);
+
+    console.log("replies ", replies);
+
     this.setState(
       {
         isLoading: false,
         user,
-        tweets,
+        tweets: pass,
         replies
       },
       () => this.initSockets()
@@ -79,7 +81,7 @@ class DashBoard extends Component {
       socket.on("tweets", tweet => {
         if (tweet.in_reply_to_status_id !== null) {
           this.handleIncomingReply(tweet);
-        } else if (!this.state.tweets.some(o => o.id_str === tweet.id_str))
+        } else if (!this.state.tweets.some(o => o.id === tweet.id))
           this.setState({ tweets: [tweet].concat(this.state.tweets) });
       });
     });
@@ -89,9 +91,29 @@ class DashBoard extends Component {
     });
   };
 
-  createTweetsThread = async () => {};
-
-  //TODO: when reply statusid !==null and bottom coditions also don't fulfill
+  createTweetsThread = async (tweets, userReplies, replies) => {
+    let combined = [...tweets, ...userReplies].sort(
+      (a, b) => new Date(a.created_at) - new Date(b.created_at)
+    );
+    for (let tweet of combined) {
+      if (replies[tweet.in_reply_to_status_id])
+        replies[tweet.in_reply_to_status_id].push(tweet);
+      else {
+        for (const replyArrId of Object.keys(replies)) {
+          console.log(replies[replyArrId]);
+          if (
+            replies[replyArrId].some(
+              reply => reply.id === tweet.in_reply_to_status_id
+            )
+          ) {
+            replies[replyArrId].push(tweet);
+            break;
+          }
+        }
+      }
+    }
+    return replies;
+  };
 
   handleIncomingReply = tweet => {
     let { replies } = this.state;
@@ -162,7 +184,6 @@ class DashBoard extends Component {
   logout = async () => {
     window.localStorage.clear();
     appStore.changeLoginState(false, null, "");
-    //wait for appStore to change login state & localstorage to clear
     setTimeout(() => {
       this.props.history.push("/");
     }, 100);

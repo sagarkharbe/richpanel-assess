@@ -1,13 +1,16 @@
 import React from "react";
+import { observer } from "mobx-react";
+import { appStore } from "../../store/appStore";
 import { ListItem, Avatar } from "@material-ui/core";
 import moment from "moment";
 
-export default function ChatItem(props) {
+function ChatItem(props) {
   let { style, item } = props;
+  const isUser = appStore.user.screen_name === item.user.screen_name;
   return (
     <div
       style={{
-        marginLeft: style.marginLeft,
+        marginLeft: isUser ? "35%" : "1%",
         display: "flex",
         flexDirection: "row"
       }}
@@ -23,7 +26,7 @@ export default function ChatItem(props) {
           borderColor: "#d3d3d3",
           borderRadius: "20px",
           borderTopLeftRadius: 0,
-          backgroundColor: style.backgroundColor
+          backgroundColor: isUser ? "#d8edb8" : "#FBFBFB"
         }}
       >
         <span>
@@ -45,3 +48,5 @@ export default function ChatItem(props) {
     </div>
   );
 }
+
+export default observer(ChatItem);
