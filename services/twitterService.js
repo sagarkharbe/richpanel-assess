@@ -17,8 +17,10 @@ module.exports = (io, app) => {
     socket.on("register_screen_name", data => {
       let { term: searchTerm, jwtToken } = data;
       let decoded = jwt.decode(jwtToken, keys.JWT_SECRET);
-      if (decoded.user) socket.join(searchTerm);
-      stream(searchTerm, decoded.user);
+      if (decoded.user) {
+        socket.join(searchTerm);
+        stream(searchTerm, decoded.user);
+      }
     });
   });
 
