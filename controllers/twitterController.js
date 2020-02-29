@@ -25,7 +25,10 @@ module.exports = {
         user.oauth_token,
         user.oauth_token_secret
       ).userTimelineTweets();
-      return res.json(data);
+      const userTweets = data.filter(
+        tweet => tweet.in_reply_to_status_id !== null
+      );
+      return res.json(userTweets);
     } catch (err) {
       console.log("ERROR at USER TWEETS ", err);
       next();
