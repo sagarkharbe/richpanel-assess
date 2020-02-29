@@ -31,16 +31,7 @@ const app = express();
  */
 
 // set up cors to allow us to accept requests from our client
-//app.use(cors(corsOptions));
-// app.set("trust proxy", 1); // trust first proxy
-app.use(
-  session({
-    secret: "keyboard cat",
-    resave: false,
-    saveUninitialized: false,
-    cookie: { secure: process.env.NODE_ENV === "production" }
-  })
-);
+app.use(cors(corsOptions));
 //passport authentication strategy for twitter
 // initalize passport
 app.use(passport.initialize());

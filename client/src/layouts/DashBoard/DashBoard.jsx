@@ -100,7 +100,6 @@ class DashBoard extends Component {
         replies[tweet.in_reply_to_status_id].push(tweet);
       else {
         for (const replyArrId of Object.keys(replies)) {
-          console.log(replies[replyArrId]);
           if (
             replies[replyArrId].some(
               reply => reply.id === tweet.in_reply_to_status_id
