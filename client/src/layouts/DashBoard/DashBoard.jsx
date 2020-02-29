@@ -77,7 +77,10 @@ class DashBoard extends Component {
     const socket = socketIOClient(apiUrl);
     socket.on("connect", async () => {
       console.log("Socket Connected! , Emitting screen Name", user.screen_name);
-      socket.emit("register_screen_name", { term: user.screen_name });
+      socket.emit("register_screen_name", {
+        term: user.screen_name,
+        jwtToken: appStore.jwtToken
+      });
       socket.on("tweets", tweet => {
         if (tweet.in_reply_to_status_id !== null) {
           this.handleIncomingReply(tweet);
